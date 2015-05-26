@@ -1,0 +1,150 @@
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 " id="zona_usuario">
+
+    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 contenido_info_usuario">
+        <div style="float:left;height: 1px;width:80px;">
+
+            <div class="foto_usuario" style="background-image: url('img/platos/{foto}')">
+
+                <div class="gorro"></div>
+            </div>
+        </div>
+        <div class="info_usuario">
+
+            <h1>{nombre} {apellidos}</h1><input type="button" value="Editar Perfil" class="editar" onclick="formulario()">
+            <h3>{email}</h3>
+            <p>{poblacion}</p>
+            <p>{edad} años</p>
+        </div>
+
+
+    </div>
+    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12" style="padding: 0">
+        <div class='formulario'>
+            <h3>Editando Perfil</h3>
+            <p>aqui va el formulario</p>
+            <p>aqui va el formulario</p>
+            <p>aqui va el formulario</p>
+            <p>aqui va el formulario</p>
+            <p>aqui va el formulario</p>
+            <p>aqui va el formulario</p>
+            <p>aqui va el formulario</p>
+        </div>
+
+
+    </div>
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 contenido">
+
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 bloque">
+            <h2 id="notificaciones"><span class="glyphicon glyphicon-bell"></span> Notificaciones <span class="c_n">{c_n}</span></h2>
+            <div id="notificaciones_c"><div>{notificaciones}</div></div>
+        </div>
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 bloque ">
+            <h2 id="tuppers_adquiridos"><span class="glyphicon glyphicon-heart"></span> Tuppers Pedidos <span class="c_ta">{c_ta}</span></h2>
+            <div id="tuppers_adquiridos_c"><div>{tuppers_adquiridos}</div></div>
+        </div>
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 bloque">
+            <h2 id="mis_tuppers"><span class="glyphicon glyphicon-folder-close"></span> Mis Tuppers <span class="c_mt">{c_mt}</span></h2>
+            <div id="mis_tuppers_c"><div style="height:auto; overflow: hidden">{mis_tuppers}</div></div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $('document').ready(function () {
+        $('#notificaciones_c').css('height', 'auto');
+    }
+    );
+
+    $('#notificaciones').click(function () {
+
+        var altura = $('#notificaciones_c').css('height');
+        if (altura == '0px') {
+            $('#notificaciones_c').css('height', 'auto');
+        }
+        else {
+            $('#notificaciones_c').css('height', '0px');
+        }
+    });
+    $('#tuppers_adquiridos').click(function () {
+        var altura = $('#tuppers_adquiridos_c').css('height');
+        if (altura == '0px') {
+            $('#tuppers_adquiridos_c').css('height', 'auto');
+        }
+        else {
+            $('#tuppers_adquiridos_c').css('height', '0px');
+        }
+    });
+    $('#mis_tuppers').click(function () {
+        var altura = $('#mis_tuppers_c').css('height');
+        if (altura == '0px') {
+            $('#mis_tuppers_c').css('height', 'auto');
+        }
+        else {
+            $('#mis_tuppers_c').css('height', '0px');
+        }
+    });
+
+
+
+    $('.ver span').click(function () {
+        var altura = $(this).parent().prev().outerHeight();
+        if (altura == 20) {
+            $(this).parent().prev().css('height', $(this).parent().prev().children().outerHeight() + 5);
+            $(this).html('ver menos');
+        }
+        else {
+            $(this).parent().prev().css('height', '0px');
+            $(this).html('ver mas');
+        }
+
+    });
+    $('div.info_usuario h1').click(function () {
+        var tamaño = $('div.info_usuario h1').css('font-size');
+        if (tamaño == '34px') {
+            $('div.info_usuario h1').css('font-size', '40px');
+            console.log($('div.info_usuario h1').parent());
+            $('div.info_usuario h3').css('font-size', '17px');
+            $('div.info_usuario h1').parent().css('height', '110px');
+            $('div.foto_usuario').css('transform', 'scale(1)');
+            $('div.foto_usuario').css('margin-top', '0px');
+            $('div.gorro').css('height', '50px');
+            $('div.gorro').css('top', '-60px');
+            $('div.contenido_info_usuario').css('margin-top', '50px');
+            $('div.info_usuario').css('margin-top', '0px');
+
+            $('div.contenido_info_usuario>div:first-child').css('width', 'auto');
+            $('#zona_usuario .editar').css('width', '90px');
+            $('#zona_usuario .editar').css('border', 'solid 2px #2D9DA0');
+        }
+        else {
+            $('div.info_usuario h1').css('font-size', '34px');
+            console.log($('div.info_usuario h1').parent());
+            $('div.info_usuario h3').css('font-size', '15px');
+            $('div.info_usuario h1').parent().css('height', '58px');
+            $('div.foto_usuario').css('transform', 'scale(0.56)');
+            $('div.foto_usuario').css('margin-top', '-20px');
+            $('div.contenido_info_usuario').css('margin-top', '25px');
+            $('#zona_usuario .editar').css('width', '0px');
+            $('div.gorro').css('height', '0px');
+            $('div.gorro').css('top', '0px');
+            $('div.info_usuario').css('margin-top', '7px');
+            $('div.contenido_info_usuario>div:first-child').css('width', '80px');
+            $('#zona_usuario .editar').css('border', 'solid 0px #2D9DA0');
+        }
+    });
+    function formulario() {
+        if($('.formulario').css('height')=='128px'){
+            $('.formulario').css('height', '0px');            
+        setTimeout(function () {$('.formulario').css('display', 'none');}, 500);
+        }
+        else{
+           $('.formulario').css('display', 'block');
+        setTimeout(function () {
+            $('.formulario').css('height', '128px');
+        }, 1); 
+        }
+        
+        
+    }
+
+
+</script>
