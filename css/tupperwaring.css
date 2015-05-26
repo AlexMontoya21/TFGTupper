@@ -24,8 +24,8 @@ and open the template in the editor.
     height: 103px;
     border-radius: 50%;
     position: absolute;
-    bottom: 215px;
-    left: 212px;
+    bottom: 198px;
+    left: 198px;
     z-index: 3;
     background-image: url(../img/texto.png);
     background-size: auto 80%;
@@ -51,8 +51,8 @@ and open the template in the editor.
     width: 155px;
     height: 155px;
     position: absolute;
-    bottom: 205px;
-    left: 191px;
+    bottom: 172px;
+    left: 172px;
     background-image: url(../img/rueda4.png);
     background-size: 100% auto;
     background-position: center;
