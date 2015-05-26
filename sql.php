@@ -105,6 +105,20 @@ function guardar($valores_campos, $tabla) {
     }
 }
 
+
+function eliminar($tabla) {
+    global $campos, $valores_campos;
+    addTable($tabla);
+    setFuncion("delete");
+    foreach ($valores_campos as $campo => $valor) {
+        addWhere("$campo = ?");
+        addTipo($valor);
+    }
+
+    $sql_select = generar();
+    return ejecutar($sql_select, $tabla);
+}
+
 function addTipo($campo) {
     global $tipos;
     switch (gettype($campo)) {
