@@ -199,14 +199,16 @@ html {
     font-size: 32px;
 }
 .tupper {
-    width: 400px;
     border: solid 1px #2D9DA0;
     padding: 10px;
-    height: 170px;
+    height: 160px;
     overflow: hidden;
     float: left;
-    margin: 20px;
+    margin: 15px 0px;
     transition: float 1s;
+    text-align: left;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;;
 }
 
 .foto {
@@ -221,9 +223,10 @@ html {
 .tupper h2 {
     margin: 0px;
     padding: 0px;
-    font-size: 25px;
+    font-size: 22px;
     color:#4C1131;
     font-family: 'Yanone Kaffeesatz', sans-serif;
+    font-weight: bold;
 }
 
 .tupper span.usuario{
@@ -274,25 +277,56 @@ html {
     padding: 5px 10px;
     cursor: pointer;
     font-weight: bold;
-    font-size: 16px;                
+    font-size: 16px; 
+    min-width:80px;
 }
 .tupper input[type=button]:hover{
     background-color: #842a58;
 }
+
 .tupper input[type=button]:disabled{
     background-color: #939292;
     cursor: default;
 }
 .resultado{
-    width: 90%;
     height: auto;
     overflow: hidden;
     margin: 0px auto;
 }
 .tupper input[type=button]:disabled {
-    background-color: #939292;
+    background-color: #CABFC6;
     cursor: default;
 }
+
+p.vegano,p.vegetariano, p.sin_gluten{
+    float: left;
+    padding: 0;
+    margin: 0;
+    border-bottom: solid 0px;
+    margin-right: 10px;
+    font-weight: bold;
+    cursor: default;
+    margin-top: 8px;
+    font-size: 11px;
+    width: auto;
+}
+
+span.vegano,p.vegano,p.vegano:hover{
+    color:#0F7647;
+}
+span.vegetariano,p.vegetariano,p.vegetariano:hover{
+    color:#66A53B;
+}
+span.sin_gluten,p.sin_gluten,p.sin_gluten:hover{
+    color:#A57D00;
+}
+span.vegano,span.vegetariano,span.sin_gluten{
+    font-weight: bold;
+}
+input[type="checkbox"] {
+    display: none;
+}
+
 
 .popup-content .foto {
     width: 150px;
@@ -515,4 +549,770 @@ p.vegetariano:hover{
 }
 input[type="checkbox"] {
     display: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/****NUEVO DE LORENA************************************************************/
+
+/****APARIENCIA ZONA DE USUARIOS************************************************/
+h3 {
+    text-align: center;
+    font-size: 18px;
+    margin-top: 0px;
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+}
+
+#zona_usuario h2 {
+    font-size: 21px;
+    border-bottom: solid 2px;
+    padding-bottom: 4px;
+    font-weight: bold;
+    text-align: left;
+    color: #2D9DA0;
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+    cursor: pointer;
+}
+
+#zona_usuario h2 span {
+    font-size: 18px;
+}
+
+#zona_usuario .espacio {
+    margin: 40px 0px;
+    margin: 145px 0px 0px 0px;
+    text-align: left;
+}
+
+#zona_usuario .espacio h1,
+#zona_usuario .espacio h3 {
+    text-align: left;
+}
+
+#zona_usuario .espacio h1 {
+    font-size: 36px;
+}
+#zona_usuario .c_n, #zona_usuario .c_mt, #zona_usuario .c_ta{
+    float:right;
+    font-size: 18px;
+    margin-right: 4px;
+    color:#666;
+}
+#zona_usuario .bloque{
+    text-align: left;
+}
+#zona_usuario .notificacion{
+    border-bottom: solid 1px #BBB;
+    padding:10px 0px;
+    cursor: default;
+}
+#zona_usuario span.n_fecha{
+    font-size: 11px;
+    color: #808080;
+}
+#zona_usuario .b_noti{
+    float: right;
+    margin-left: 5px;
+    margin-bottom: 2px;
+}
+
+#zona_usuario .notificacion a{
+    color: #842A58;
+    font-size: 14px;
+    font-weight: bold;
+    text-decoration: underline;
+}
+#zona_usuario .notificacion a:hover{
+    color: #681941;
+}
+
+#notificaciones_c,#tuppers_adquiridos_c,#mis_tuppers_c{
+    height: 0px;
+    transition: height 600ms;
+    -webkit-transition: height 600ms;
+    overflow: hidden;
+}
+
+/******************APARIENCIA TUPPERS EN NOTIFICACIONES************************/
+
+#zona_usuario .t{
+    height: auto;
+    overflow: hidden;  
+    border-bottom: solid 1px;
+    padding-bottom: 10px;
+}
+
+#zona_usuario .t .foto {
+    height: 70px;
+    width: 70px;
+    float: left;
+    margin: 10px 10px 0px 10px;
+    border: solid 0px #EEEEEE;
+    border-radius: 50%;
+    background-color: rgba(0,0,0,0);
+    background-size: 100% auto;
+}
+
+
+#zona_usuario  .t .gestion {
+    /* margin-left: 90px; */
+    /* float: left; */
+    line-height: 15px;
+    margin-bottom: 9px;
+}
+
+#zona_usuario  .t .gestion hr {
+    margin: 2px 0px;
+    width: 100%;
+    padding: 0;
+    color: #D5D5D5;
+}
+
+#zona_usuario  .t .ver {
+
+    border-top: solid 1px #D5D5D5;
+    margin-left: 90px;
+    margin-right: 10px;
+    padding-right: 15px;
+}
+
+#zona_usuario  .ver span {
+    cursor: pointer;
+    text-decoration: underline;
+    font-size: 12px;
+    color: #808080;
+}
+
+#zona_usuario  .t .descripcion {
+    margin-left: 90px;
+    margin-right: 10px;
+    height: 0px;
+    overflow: hidden;
+    text-align: left;
+    font-size: 13px;
+    padding-bottom: 20px;
+    transition: height 1s;
+    -webkit-transition: height 1s;
+
+}
+
+#zona_usuario  .t .botones {
+    float: right;
+    text-align: right;
+    margin: 0px 10px;
+}
+
+#zona_usuario  .t .botones input {
+    margin: 2px 0px 2px 10px;
+    padding: 2px 7px;
+}
+#zona_usuario  .t h3{
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+    font-size: 23px;
+    margin: 10px 0px 0px 0px;
+    padding: 0px;
+    font-weight: 600;
+    text-transform: initial;
+    text-align: left;
+    color: #842A58;
+}
+ #zona_usuario div.contenido_info_usuario{
+    margin-top: 25px;
+    padding-left: 0px;
+    margin: 50px auto 0px auto;
+    height: auto;
+    transition: all 700ms;
+}
+
+ #zona_usuario  .contenido_info_usuario div.foto_usuario {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    margin: 0px;
+    margin-top: -20px;
+    float: left;
+    position: relative;
+    border: solid 3px #A5A5A5;
+    transform:scale(0.56);
+    transform-origin: 50px;
+    transition: all 500ms;
+    background-size: 100% auto;
+}
+ #zona_usuario  .contenido_info_usuario div.gorro {
+    background-image: url(../img/platos/gorro.png);
+    background-size: 100% auto;
+    width: 55px;
+height: 0px;
+  top: 0px;
+    position: absolute;
+    right: 22px;
+    overflow: hidden;
+    transition: all 500ms;
+}
+
+ #zona_usuario  .contenido_info_usuario div.info_usuario{
+    float:left;
+    height: 58px;
+    text-align: left;
+    margin-left: 15px;
+    border-left: solid 3px  #ECECEC;
+    padding-left: 15px;
+    overflow: hidden;
+    margin-top:7px;
+    transition: all 700ms;
+}
+ #zona_usuario  .contenido_info_usuario div.info_usuario h1{
+    text-align: left;
+    font-size: 34px;
+    margin: 0px;
+    cursor: pointer;
+    display: inline-block;
+    font-family: 'Yanone Kaffeesatz', sans-serif !important;
+}
+ #zona_usuario  .contenido_info_usuario div.info_usuario h3{
+    padding: 0;
+    font-size: 15px;
+    margin: 0;
+    text-align: left;
+}
+ #zona_usuario  .contenido_info_usuario div.info_usuario p{
+    margin: 0;
+}
+ #zona_usuario  .contenido_info_usuario  .editar{
+    margin-left: 9px;
+    width: 0px;
+    margin-top: 17px;
+    overflow: hidden;
+    padding: 0;
+    border: 0;
+    border-radius: 4px;
+    vertical-align: top;
+    transition: width 500ms, border 1s;
+    color:#2D9DA0;
+    background-color: white;
+    font-family: 'Lato', sans-serif !important;
+    font-weight: bold;
+    text-transform: capitalize;
+    font-size: 12px;
+}
+ #zona_usuario  .contenido_info_usuario  .editar:hover{
+    color:white;
+    background-color: #2D9DA0;  
+}
+
+ #zona_usuario .contenido {
+    float: left;
+    width: 100%;
+    margin-top: 20px;
+}
+
+ #zona_usuario  .formulario{
+  height: 0px;
+  overflow: hidden;
+  transition: height 600ms;
+  display: none;
+  text-align: left;
+  padding: 10px;
+  background-color: #ECECEC;
+  border-radius: 5px;
+  margin-top: 31px;
+}
+
+#zona_usuario .gestion .vegano,.gestion .vegetariano,.gestion .sin_gluten{
+    display: inline;
+    font-size: 11px;
+    margin-right: 5px;
+    font-weight: bold;
+}
+#zona_usuario .gestion .vegano,.gestion .vegano:hover{
+    color:#0F7647;
+}
+#zona_usuario .gestion .vegetariano,.gestion .vegetariano:hover{
+    color:#66A53B;
+}
+#zona_usuario .gestion .sin_gluten,.gestion .sin_gluten:hover{
+    color:#A57D00;
+}
+span.estado{
+    color: #808080;
+    font-size: 14px;
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+}
+span.estado>span>span{
+    font-size: 12px;
+}
+#n{
+    background-color: #FC6344;
+    color: white;
+    padding-right: 1px;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    line-height: 19px;
+    font-size: 9px;
+    font-weight: bold;
+    cursor: default;
+    display: none;
+    margin-left: 4px;
+    position: absolute;
+}
+div.info{
+    padding: 10px;
+}
+div.info h3{
+    font-size: 30px;
+    margin: 0;
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+    cursor: default;
+    color: #842A58;
+
+}
+div.info .descripcion {
+    margin-left: 90px;
+    margin-right: 10px;
+    height: auto;
+    overflow: hidden;
+    text-align: left;
+    font-size: 13px;
+    padding-bottom: 20px;
+    transition: height 1s;
+    -webkit-transition: height 1s;
+
+}
+
+div.info .foto {
+    height: auto;
+    width: 120px;
+    float: left;
+    margin: 0px 10px 0px 0px;
+    border: solid 0px #EEEEEE;
+    background-color: rgba(0,0,0,0);
+    background-size: 100% auto;
+}
+div.info .foto img{    
+    height: 120px;
+    width: auto;}
+div.info .foto p{
+    margin: 10px 0px;
+    /* padding-left: 5px; */
+    border-top: solid 1px #D5D5D5;
+    /* border-bottom: solid 1px; */
+
+}
+div.info .gestion {
+    margin-bottom: 10px;
+    line-height: 13px;
+}
+div.info .gestion .vegano,div.info .gestion .vegetariano,div.info .gestion .sin_gluten{
+    display: inline;
+    font-size: 11px;
+    margin-right: 5px;
+    font-weight: bold;
+}
+div.info  .gestion .vegano,div.info .gestion .vegano:hover{
+    color:#0F7647;
+}
+div.info  .gestion .vegetariano,div.info .gestion .vegetariano:hover{
+    color:#66A53B;
+}
+div.info  .gestion .sin_gluten,div.info .gestion .sin_gluten:hover{
+    color:#A57D00;
+}
+
+.de_usuario, .de_usuario a{
+    font-size: 16px; 
+    margin-right: 4px;
+    font-weight: normal;
+    color: #842A58;
+    text-decoration: underline;
+}
+.de_usuario a:hover, .de_usuario a:active, .de_usuario a:focus, .de_usuario a:link{
+    font-weight: normal;
+    color: #842A58;
+}
+
+
+
+
+.popup_usuario{
+padding-top: 60px;
+  height: auto;
+  overflow: hidden;
+}
+
+.popup_usuario div.foto_usuario {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    margin: 0px;
+    margin-top: 0px;
+    float: left;
+    position: relative;
+    border: solid 3px #A5A5A5;
+    transition: all 500ms;
+    background-size: 100% auto;
+}
+.popup_usuario div.gorro {
+    background-image: url(../img/platos/gorro.png);
+    background-size: 100% auto;
+    width: 55px;
+height: 50px;
+  top: -60px;
+    position: absolute;
+    right: 22px;
+    overflow: hidden;
+    transition: all 500ms;
+}
+
+.popup_usuario div.info_usuario{
+  float: left;
+  height: 130px;
+  text-align: left;
+  margin-left: 15px;
+  border-left: solid 3px #ECECEC;
+padding: 10px 0px 0px 15px;
+  overflow: hidden;
+  margin-top: -10px;
+  transition: all 700ms;
+  width: 300px;
+}
+.popup_usuario div.info_usuario h1{
+    text-align: left;
+    font-size: 40px;
+    margin: 0px;
+    cursor: default;
+    display: inline-block;
+    font-family: 'Yanone Kaffeesatz', sans-serif !important;
+}
+.popup_usuario div.info_usuario h3{
+    padding: 0;
+    font-size: 21px;
+  margin: 0 0 10px 0;
+    text-align: left;
+}
+.popup_usuario div.info_usuario p{
+    margin: 0;
+}
+
+div.exito{
+    color: #4EA53B;
+    height: 0px;
+    transition: all 1s;
+    overflow: hidden;
+}
+
+
+/***POP-UPS********************************************************************/
+
+.popup-content .foto {
+    width: 150px;
+    height: 150px;
+    border: solid 1px #2D9DA0;
+    float: left;
+    margin: -5px 10px 10px 10px;
+    overflow: hidden;
+}
+
+.popup-content h2 {
+    font-size: 40px;
+    color: #4C1131;
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+    z-index: 1;
+    width: 90%;
+    padding: 0px;
+    margin: 16px 0px 0px 0px;
+}
+
+.popup-content span.usuario {
+    font-size: 21px;
+    color: #681941;
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+}
+
+.popup-content p {
+    font-size: 12px;
+    height: auto;
+    overflow: hidden;
+    width: 415px;
+    /* border-bottom: solid 1px #5e5e5e; */
+    margin-top: 20px;
+    color: #5e5e5e;
+}
+
+.popup-content .contenido {
+    position: relative;
+}
+
+.popup-content .foto img {
+    width: 100%;
+    height: auto;
+}
+
+.popup-content input[type=button] {
+    float: right;
+    background-color: #681941;
+    color: white;
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+    border: solid 0px;
+    border-radius: 6px;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-weight: bold;
+    margin: 10px;
+    font-size: 21px;
+    min-width: 120px;
+}
+.popup-content p.vegano, .popup-content p.vegetariano, .popup-content p.sin_gluten {
+    float: left;
+    padding: 0;
+    padding-top: 12px;
+    margin: 0px 5px 0px 10px;
+    border-bottom: solid 0px;
+    font-weight: bold;
+    cursor: default;
+    margin-top: 6px;
+    font-size: 13px;
+    width: auto;
+}
+
+.popup-content input[type=button]:hover {
+    background-color: #842a58;
+}
+
+.popup-content input[type=button]:disabled {
+    background-color: #939292;
+    cursor: default;
+}
+
+.popup-fondo {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(19, 0, 11, 0.7);
+    position: fixed;
+    z-index: 999999;
+    top: -40px;
+    display: none;
+    opacity: 0;
+    transition: opacity 10ms linear;
+    margin: 40px 0px;
+}
+
+.popup-wrapper {
+    border: solid 1px;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.popup-content {
+    height: auto;
+    background-color: white;
+    margin: 0px auto;
+    box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.6);
+    border-radius: 5px;
+    overflow: hidden;
+    position: relative;
+}
+.popup-content.mas_tupper{
+    width: 600px; 
+}
+.popup-content.no_logged{
+    width: 350px;
+    text-align: center;
+    padding: 0px 10px 15px 10px;
+    border-radius: 5px;
+}
+.popup-content.no_logged input[type=button] {
+    float: left;
+    background-color: #237D84;        
+    border: solid 0px;
+    border-radius: 6px;
+    padding: 3px 6px;
+    cursor: pointer;
+    font-weight: bold;
+    margin: 10px;
+    font-size: 18px;
+    min-width: 90px;
+}
+.popup-content.no_logged input[type=button]:hover {
+    background-color: #2D9DA0;
+}
+.popup-content.no_logged .logeo{
+    width: 200px;
+    margin: 15px auto 0px auto;
+    text-align: center;
+    font-weight: normal;
+}
+.popup-content.no_logged .error, .popup-content.exito{
+    font-weight: bold;
+    color: #4C1131;
+}
+.popup-content.no_logged h1{
+    font-size: 50px;
+    margin: 0;
+    padding: 10px;
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+}
+.popup-content.no_logged a {
+    color: #237D84;   
+    font-size: 14px;
+}
+.popup-content.no_logged a:hover {
+    color: #2D9DA0; 
+    text-decoration: underline;
+    font-weight: normal;
+}
+.popup-content .cerrar {
+    height: 19px;
+    width: 19px;
+    border-radius: 3px;
+    background-color: #2D9DA0;
+    float: right;
+    margin: 5px;
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 99;
+    color: white;
+    text-align: center;
+    font-size: 14px;
+    line-height: 15px;
+    font-weight: bold
+}
+
+.popup-content .cerrar:hover {
+    background-color: #237D84;
+}
+.popup-content .exito{
+    width: 400px;
+      text-align: center;
+        margin-bottom: 7px;
+}
+.popup-content .exito h3 {
+    font-size: 36px;
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+    color:#4C1131;
+
+}
+.popup-content .exito p {
+    font-size: 14px;
+    color: #000;
+    width: 100%;
+
+}
+.popup-content .exito input[type=button] {
+  width: 84px;
+  float: none;
+  padding: 2px;
+  min-width: 0;
+
+}
+
+
+
+
+/*****TUPPER ZONA DE USUARIOS**************************************************/
+
+
+
+
+
+.tupper .leermas{
+    background-color: white;
+    width: 40px;
+    height: 10px;
+    border: solid 1px;
+    position: absolute;
+    bottom: 0px;
+    left:10px;
+    font-size: 10px;
+}
+
+.tupper .foto img{
+    width: 100%;
+    height: auto;
+}
+.tupper input[type=button]{
+    float: right;
+    background-color: #681941;
+    color: white;
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+    border: solid 0px;
+    border-radius: 6px;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 16px; 
+    min-width:80px;
+}
+.tupper input[type=button]:hover{
+    background-color: #842a58;
+}
+input[type=button].notifi{
+    float: right;
+    cursor: pointer;
+    border-radius: 6px;
+    font-family: 'Lato', sans-serif !important;
+    font-weight: bold;
+    padding: 2px 0px;
+    margin: -5px 5px;
+    text-transform: capitalize;
+    background-color: white;
+    border: solid 2px #2D9DA0;
+    color: #2D9DA0;
+    font-size: 12px;
+    min-width:80px;
+}
+input[type=button].notifi:disabled, input[type=button].notifi:disabled:hover{
+    background-color: white;
+    border: solid 2px #CABFC6;
+    color: #CABFC6;
+    cursor: default;
+
+}
+input[type=button].notifi:hover{background-color: #2D9DA0;  color:white;  }
+input[type=button].notifi.naranja{border:solid 2px #FC6344; color:#FC6344;}
+input[type=button].notifi.naranja:hover{background-color: #FC6344;  color:white;}
+
+
+.tupper input[type=button]:disabled{
+    background-color: #939292;
+    cursor: default;
+}
+
+.tupper input[type=button]:disabled {
+    background-color: #CABFC6;
+    cursor: default;
+}
+
+
+
+
+.resultado .col-lg-4,.resultado .col-md-6,.resultado .col-sm-6,.resultado .col-xs-12{
+    margin-left: 0px;
+    margin-right: 0px;
 }
