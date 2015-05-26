@@ -1,0 +1,125 @@
+<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">      
+    <div id="plato">
+    </div>
+
+    <div id="texto"></div>
+    <div id="rueda"></div>
+    <div id="flecha"></div>
+    <a href="index.php?plato=carne">
+        <div class="elemento carne"></div>
+    </a>
+    <a href="index.php?plato=arroz">
+        <div class="elemento arroz"></div>
+    </a>
+    <a href="index.php?plato=verduras">
+        <div class="elemento verduras"></div>
+    </a>
+    <a href="index.php?plato=entrantes">
+        <div class="elemento entrantes"></div>
+    </a>
+    <a href="index.php?plato=pucheros">
+        <div class="elemento pucheros"></div>
+    </a>
+    <a href="index.php?plato=postres">
+        <div class="elemento postres"></div>
+    </a>
+    <a href="index.php?plato=pasta">
+        <div class="elemento pasta"></div>
+    </a>
+    <a href="index.php?plato=pescado">
+        <div class="elemento pescado"></div>
+    </a>
+    <div  class='suerte'>
+    <a href="index.php?plato=todos"><span class="glyphicon glyphicon-star" style="font-size: 19px"></span> Voy a Pobrar Suerte</a>
+</div>
+</div>
+
+<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 morado_logo">
+    <!-- <div class="row">   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 "><h2>Recién salido de la cocina</h2></div> </div>-->
+    <div class="row">   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 margen">
+            <h2>
+                <i class="glyphicon glyphicon-star yellow"></i>
+                <i class="glyphicon glyphicon-star yellow"></i>
+                <i class="glyphicon glyphicon-star yellow"></i>
+                By: Lorena Marchán
+                <i class="glyphicon glyphicon-ice-lolly"></i>
+            </h2>
+
+        </div> </div>
+    <div class="row">   
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 border_main">
+            <img src="img/guacamole.jpg" alt="Guacamole mejicano" class="img-responsive border" style="margin-left: 100px;" > 
+            <h2 class="naranja_logo">Delicioso guacamole mejicano </h2>
+            <h3> Tupertruco: </h3>
+
+            Para evitar que el guacamole se oxide y oscurezca, 
+            se recomienda conservarlo en un recipiente hermético, 
+            por ejemplo un astral, junto a su hueso.
+
+        </div> 
+    </div>
+
+    <div class="row">   
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 modal-content azul_logo">  
+            Ingredientes:
+
+            • 2 Aguacates
+            • Zumo de 3  limas
+            • 6 hojas de Cilantro
+            • 4 gotas de Tabasco
+            Para los dados de salmón:
+            • 200 g de salmón fresco 
+            • 1 pizca de sal
+            • 1 chorrito de aceite de oliva                            
+            • 4 Tortillas mejicanas de maíz
+            • 8 tomates cherry
+
+        </div>                            
+    </div>
+</div> 
+<script type="text/javascript">
+    var grados = ['0', '45', '90', '135', '180', '225', '270', '315'];
+
+    $('.elemento.carne').hover(function() {
+        $('#flecha').css('transform', 'rotate(' + grados[0] + 'deg)');
+    });
+    $('.elemento.arroz').hover(function() {
+        $('#flecha').css('transform', 'rotate(' + grados[1] + 'deg)');
+    });
+    $('.elemento.verduras').hover(function() {
+        $('#flecha').css('transform', 'rotate(' + grados[2] + 'deg)');
+    });
+    $('.elemento.entrantes').hover(function() {
+        $('#flecha').css('transform', 'rotate(' + grados[3] + 'deg)');
+    });
+    $('.elemento.pucheros').hover(function() {
+        $('#flecha').css('transform', 'rotate(' + grados[4] + 'deg)');
+    });
+    $('.elemento.postres').hover(function() {
+        $('#flecha').css('transform', 'rotate(' + grados[5] + 'deg)');
+    });
+    $('.elemento.pasta').hover(function() {
+        $('#flecha').css('transform', 'rotate(' + grados[6] + 'deg)');
+    });
+    $('.elemento.pescado').hover(function() {
+        $('#flecha').css('transform', 'rotate(' + grados[7] + 'deg)');
+    });
+
+    function getRotationDegrees(obj) {
+        var matrix = obj.css("-webkit-transform") ||
+                obj.css("-moz-transform") ||
+                obj.css("-ms-transform") ||
+                obj.css("-o-transform") ||
+                obj.css("transform");
+        if (matrix !== 'none') {
+            var values = matrix.split('(')[1].split(')')[0].split(',');
+            var a = values[0];
+            var b = values[1];
+            var angle = Math.round(Math.atan2(b, a) * (180 / Math.PI));
+        } else {
+            var angle = 0;
+        }
+        return (angle < 0) ? angle + 360 : angle;
+    }
+</script>
+

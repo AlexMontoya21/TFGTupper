@@ -1,0 +1,518 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 17-may-2015, 20:08:44
+    Author     : Lorena March�n
+*/
+
+#plato {
+    width: 500px;
+    height: 500px;
+    background-image: url(../img/plato.png);
+    background-size: 100% 100%;
+    position: relative;
+    margin: 0px auto;
+}
+
+
+#texto {
+    color: white;
+    width: 100px;
+    height: 103px;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 215px;
+    left: 212px;
+    z-index: 3;
+    background-image: url(../img/texto.png);
+    background-size: auto 80%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#flecha {
+    width: 152px;
+    height: 154px;
+    position: absolute;
+    bottom: 176px;
+    left: 175px;
+    background-image: url(../img/rueda3.png);
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+    z-index: 1;
+    transition: transform 300ms;
+    transform: rotate(0deg);
+}
+
+#rueda {
+    width: 155px;
+    height: 155px;
+    position: absolute;
+    bottom: 205px;
+    left: 191px;
+    background-image: url(../img/rueda4.png);
+    background-size: 100% auto;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 1;
+    transition: transform 300ms;
+}
+
+body,
+html {
+    height: 100%;
+    width: 100%;
+    font-family: 'Lato', sans-serif !important;
+    padding: 0;
+    margin: 0;
+}
+
+.elemento {
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    background-size: 70%;
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: all 200ms linear;
+    cursor: pointer;
+}
+
+.carne {
+    left: 250px;
+    top: 69px;
+    background-image: url(../img/iconos/carne.png);
+}
+
+.arroz {
+    left: 327px;
+    top: 143px;
+    background-size: 80%;
+    background-image: url(../img/iconos/arroz.png);
+}
+
+.verduras {
+    left: 327px;
+    top: 250px;
+    background-image: url(../img/iconos/verduras.png);
+}
+
+.entrantes {
+    left: 250px;
+    top: 324px;
+    background-image: url(../img/iconos/entrantes.png);
+}
+
+.pucheros {
+    left: 146px;
+    top: 324px;
+    background-image: url(../img/iconos/pucheros.png);
+}
+
+.postres {
+    left: 71px;
+    top: 249px;
+    background-image: url(../img/iconos/postres.png);
+}
+
+.pasta {
+    left: 71px;
+    top: 144px;
+    background-size: 80%;
+    background-image: url(../img/iconos/pasta.png);
+}
+
+.pescado {
+    left: 146px;
+    top: 70px;
+    background-image: url(../img/iconos/pescado.png);
+}
+
+.carne:hover {
+    background-size: 75%;
+    background-image: url(../img/iconos/carne_h.png);
+}
+
+.arroz:hover {
+    background-size: 85%;
+    background-image: url(../img/iconos/arroz_h.png);
+}
+
+.verduras:hover {
+    background-size: 75%;
+    background-image: url(../img/iconos/verduras_h.png);
+}
+
+.entrantes:hover {
+    background-size: 75%;
+    background-image: url(../img/iconos/entrantes_h.png);
+}
+
+.pucheros:hover {
+    background-size: 75%;
+    background-image: url(../img/iconos/pucheros_h.png);
+}
+
+.postres:hover {
+    background-size: 75%;
+    background-image: url(../img/iconos/postres_h.png);
+}
+
+.pasta:hover {
+    background-size: 85%;
+    background-image: url(../img/iconos/pasta_h.png);
+}
+
+.pescado:hover {
+    background-size: 75%;
+    background-image: url(../img/iconos/pescado_h.png);
+}
+.titulo {
+    height: 0px;
+    border: solid 1px;
+    width: calc(100% -40px);
+    position: relative;
+    margin: 40px 20px 25px 20px;
+}
+.selects {
+    padding-right: 20px;
+    padding-bottom: 11px;
+    text-align: right;
+}
+.selects input[type=checkbox]{
+    margin-left: 15px;
+}
+.titulo h1{
+    position: absolute;
+    top: -21px;
+    margin: 0px;
+    padding: 0px 7px;
+    left: 40px;
+
+    background-color: white;
+    text-transform: capitalize;
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+    font-size: 32px;
+}
+.tupper {
+    width: 400px;
+    border: solid 1px #2D9DA0;
+    padding: 10px;
+    height: 170px;
+    overflow: hidden;
+    float: left;
+    margin: 20px;
+    transition: float 1s;
+}
+
+.foto {
+    width: 100px;
+    height: 100px;
+    border: solid 1px #2D9DA0;
+    float: left;
+    margin-right: 10px;
+    overflow: hidden;
+}
+
+.tupper h2 {
+    margin: 0px;
+    padding: 0px;
+    font-size: 25px;
+    color:#4C1131;
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+}
+
+.tupper span.usuario{
+    font-size: 16px;
+    color:#681941;
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+}
+.tupper .puntuacion{
+    width: 30%;
+    margin-left: 110px;
+    height: 5px;
+}
+
+.tupper p {
+    font-size: 12px;
+    height: 45px;
+    overflow: hidden;
+    border-bottom: solid 1px #5e5e5e;
+    position: relative;
+    color: #5e5e5e;
+    cursor: pointer;
+}
+.tupper p:hover {
+    color: #000;
+}
+.tupper .leermas{
+    background-color: white;
+    width: 40px;
+    height: 10px;
+    border: solid 1px;
+    position: absolute;
+    bottom: 0px;
+    left:10px;
+    font-size: 10px;
+}
+
+.tupper .foto img{
+    width: 100%;
+    height: auto;
+}
+.tupper input[type=button]{
+    float: right;
+    background-color: #681941;
+    color: white;
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+    border: solid 0px;
+    border-radius: 6px;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 16px;                
+}
+.tupper input[type=button]:hover{
+    background-color: #842a58;
+}
+.tupper input[type=button]:disabled{
+    background-color: #939292;
+    cursor: default;
+}
+.resultado{
+    width: 90%;
+    height: auto;
+    overflow: hidden;
+    margin: 0px auto;
+}
+.tupper input[type=button]:disabled {
+    background-color: #939292;
+    cursor: default;
+}
+
+.popup-content .foto {
+    width: 150px;
+    height: 150px;
+    border: solid 1px #2D9DA0;
+    float: left;
+    margin: -5px 10px 10px 10px;
+    overflow: hidden;
+}
+
+.popup-content h2 {
+    font-size: 40px;
+    color: #4C1131;
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+    z-index: 1;
+    width: 80%;
+    padding: 0px;
+    margin: 16px 0px 0px 0px;
+}
+
+.popup-content span.usuario {
+    font-size: 21px;
+    color: #681941;
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+}
+
+.popup-content p {
+    font-size: 12px;
+    height: auto;
+    overflow: hidden;
+    width: 415px;
+    /* border-bottom: solid 1px #5e5e5e; */
+    margin-top: 20px;
+    color: #5e5e5e;
+}
+
+.popup-content .contenido {
+    position: relative;
+}
+
+.popup-content .foto img {
+    width: 100%;
+    height: auto;
+}
+
+.popup-content input[type=button] {
+    float: right;
+    background-color: #681941;
+    color: white;
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+    border: solid 0px;
+    border-radius: 6px;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-weight: bold;
+    margin: 10px;
+    font-size: 21px;
+    min-width: 120px;
+}
+.popup-content p.vegano, .popup-content p.vegetariano {
+    float: left;
+    padding: 0;
+    padding-top: 12px;
+    margin: 0px 5px 0px 10px;
+    border-bottom: solid 0px;
+    font-weight: bold;
+    cursor: default;
+    margin-top: 6px;
+    font-size: 13px;
+    width: auto;
+}
+
+.popup-content input[type=button]:hover {
+    background-color: #842a58;
+}
+
+.popup-content input[type=button]:disabled {
+    background-color: #939292;
+    cursor: default;
+}
+
+.popup-fondo {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    position: fixed;
+    z-index: 2;
+    top: -40px;
+    display: none;
+    opacity: 0;
+    transition: opacity 2s linear;
+    margin: 40px 0px;
+}
+
+.popup-wrapper {
+    border: solid 1px;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.popup-content {
+    height: auto;
+    background-color: white;
+    margin: 0px auto;
+    box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.6);
+    border-radius: 5px;
+    overflow: hidden;
+    position: relative;
+}
+.popup-content.mas_tupper{
+    width: 600px; 
+}
+.popup-content.no_logged{
+    width: 350px;
+    text-align: center;
+    padding: 0px 10px 15px 10px;
+    border-radius: 5px;
+}
+.popup-content.no_logged input[type=button] {
+    float: left;
+    background-color: #237D84;        
+    border: solid 0px;
+    border-radius: 6px;
+    padding: 3px 6px;
+    cursor: pointer;
+    font-weight: bold;
+    margin: 10px;
+    font-size: 18px;
+    min-width: 90px;
+}
+.popup-content.no_logged input[type=button]:hover {
+    background-color: #2D9DA0;
+}
+.popup-content.no_logged .logeo{
+    width: 200px;
+    margin: 15px auto 0px auto;
+    text-align: center;
+    font-weight: normal;
+}
+.popup-content.no_logged .error{
+    font-weight: bold;
+    color: #4C1131;
+}
+.popup-content.no_logged h1 {
+    font-size: 50px;
+    margin: 0;
+    padding: 10px;
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+}
+.popup-content.no_logged a {
+    color: #237D84;                
+}
+.popup-content.no_logged a:hover {
+    color: #2D9DA0; 
+    text-decoration: underline;
+}
+.popup-content .cerrar {
+    height: 21px;
+    width: 21px;
+    border-radius: 50%;
+    background-color: #2D9DA0;
+    float: right;
+    margin: 5px;
+    cursor: pointer;
+    position: absolute;
+    top:0;
+    right: 0;
+    z-index: 99;
+    color: white;
+    text-align: center;
+    font-size: 15px;
+}
+
+.popup-content .cerrar:hover {
+    background-color: #237D84;
+}
+h2, .tupper span, .popup-content span,.popup-content p, .selects label{
+    cursor: default;
+}
+div.suerte{
+    width: 150px;
+    margin: 0px auto;
+    text-align: center;
+
+}
+.suerte a{
+    text-decoration: none;
+    font-weight: bold;
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+    font-size:22px;
+    color:#FC6344;
+}
+.suerte a:hover{
+    color:#D43C33;
+    text-decoration: none;
+}
+p.vegano,p.vegetariano{
+    float: left;
+    padding: 0;
+    margin: 0;
+    border-bottom: solid 0px;
+    margin-right: 10px;
+    font-weight: bold;
+    cursor: default;
+    margin-top: 6px;
+    font-size: 11px;
+    width: auto;
+}
+p.vegano{
+    color:#0F7647;
+}
+p.vegano:hover{
+    color:#0F7647;
+}
+p.vegetariano{
+    color:#66A53B;
+}
+p.vegetariano:hover{
+    color:#66A53B;
+}
+input[type="checkbox"] {
+    display: none;
+}
