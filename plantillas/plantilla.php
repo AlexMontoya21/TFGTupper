@@ -1,4 +1,6 @@
-<!doctype html>
+<?php 
+    session_start(); 
+?>
 <html>
 
     <head>
@@ -11,24 +13,25 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
         <link rel="stylesheet" href="css/bootstrap.css" /><!-- clases de base -->
-        <link rel="stylesheet" href="css/bootstrap-theme.css" /><!--añade efectos 3D a botones...-->
+        <link rel="stylesheet" href="css/bootstrap-theme.css" /><!--aÃ±ade efectos 3D a botones...-->
         <link rel="stylesheet" href="css/estilos.css" /><!--clases propias-->
         <link rel="stylesheet" href="css/registro.css" /><!--formulario de registro y login-->
         <script type="text/javascript" src="js/bootstrap.js"></script>  
         <script type="text/javascript" src="js/ValidacionFormulario.js"></script>  
          <script type="text/javascript" src="js/registro.js"></script>  
-        <!-- Librería jQuery requerida por los plugins de JavaScript -->
+        <!-- LibrerÃ­a jQuery requerida por los plugins de JavaScript -->
         <script src="http://code.jquery.com/jquery.js"></script>
             <script src="js/modernizr.js"></script>
         <!-- Latest compiled and minified JavaScript -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+                <script src="js/general.js"></script>
         <script type="text/javascript">
 
             
         </script>
     </head>
     <body>
-        <input type="hidden" id="usuario" value="24">
+        <input type="hidden" id="usuario" value="1">
         <div class="popup-fondo">
             <div class="popup-wrapper">
                 <div class="popup-content">
@@ -40,10 +43,15 @@
             <!--head-->
             <div class="row panel-heading border morado_logo azul_logo">
                 <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2"><img src="img/logo.png" alt="logotipo"  class="img-responsive" > </div>
-                <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 line-height-header"> <h1>Tupperwaring.com</h1></div>
+                <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 line-height-header"> <h1>Tupperwaring.com</h1>
+                <div> Bienvenido: <a href="index.php?perfil={id}"><strong>{usuario}</strong></a></div> 
+                </div>
                 <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 line-height-header"> 
                     
-                    <a href="index.php?iniciaSesion"> <input type="button" class="btn-default" id="login" value="Log out" style="line-height: 200%;" onClick="logOut()"> </a>
+                    <div> <a href="logout.php"> <input type="button" class="btn-default" id="login" value="Cerrar SesiÃ³n" style="line-height: 200%;" onClick="logOut()"> </a></div>
+
+
+           <div> <a href="logout.php"></a> </div>
 
 
                    <!-- <input type="button" class="btn-default" id="sign" value="Accede" style="line-height: 200%;"> --></div>
@@ -53,8 +61,9 @@
                 <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3"> <a href="index.php">Inicio</a></div>
                 <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3"> <a href="index.php?plato=todos">Voy a probar suerte</a></div>
                 <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3"> <a href="index.php?recetas">Sube tu tupper</a></div>
-             
-              <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3"> <a href="index.php?hazteTupper" onClick="login()" >Perfil</a></div>
+                <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3"> <a href="index.php?perfil" onClick="login()" >Perfil</a></div> 
+ 
+              
            
             </div> 
             <!--main-->
@@ -70,10 +79,10 @@
             </div>    
             <!--footer-->
             <div class="row panel-footer border azul_logo2">
-                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6"><a href="#" class="link_footer">Copyright by Julia Bustos | Lorena Marchán | Alejandro Montoya</a></div>
+                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6"><a href="#" class="link_footer">Copyright by Julia Bustos | Lorena MarchÃ¡n | Alejandro Montoya</a></div>
 
-                <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3"><a href="#" class="link_footer">Política de cookies</a></div>
-                <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3"><a href="#" class="link_footer">Política de privacidad</a></div>
+                <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3"><a href="#" class="link_footer">PolÃ­tica de cookies</a></div>
+                <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3"><a href="#" class="link_footer">PolÃ­tica de privacidad</a></div>
 
             </div>
         </div>
@@ -136,8 +145,8 @@
                 }
                 else {
                     $('.popup-content .info').remove();
-                    var hola = '<h1>¡Oops!</h1>Tienes que ser usuario para coger tuppers.';
-                    hola += '<div class="logeo"><input type="button" value="Inicia sesión">';
+                    var hola = '<h1>Â¡Oops!</h1>Tienes que ser usuario para coger tuppers.';
+                    hola += '<div class="logeo"><input type="button" value="Inicia sesiÃ³n">';
                     hola += '<span style="float:left; padding-top:15px;">o <a href="#">Registrate</a></span></div>';
                     $('.popup-content').removeClass('mas_tupper');
                     $('.popup-content').addClass('no_logged');

@@ -135,6 +135,7 @@ function info(tipo_id, id) {
     peticion_http.open("POST", 'mas_info.php', true);
     peticion_http.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     peticion_http.send(parametros_json);
+    console.log('todo');
 
 
 }

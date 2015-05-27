@@ -1,5 +1,5 @@
 <?php
-
+require_once("funciones_vista.php");
 //CODIGO DEL LADO SERVIDOR
 
 //GLOBALES
@@ -17,7 +17,7 @@ $mensajeAbrirConexion = "";
 $enlace = "";
 $duplicado=false;
 $logeo=false;
-$contraseña=false;
+$contrasena=false;
 
 if (!isset($_SESSION["username"])){
 if (isset($_POST["login-submit"])){
@@ -27,18 +27,16 @@ if (isset($_POST["login-submit"])){
         {
             if ($res[0]===$_POST["passwordlog"]){ // SI COINCIDE CON LA PASSWORD
                     CrearSesion();// LOGEO (Creacion de sesion etc)                 
-                    }
-                    
-            else {
-                $contraseña=true;
-                 displayFormulario(array(),array(),$duplicado,$logeo,$contraseña);
-       // SI NO COINCIDE, CONTRASEÑA NO VALIDA 
-                 }                
+                    } else {
+                $contrasena=true;
+               //  displayFormulario(array(),array(),$duplicado,$logeo,$contrasena);
+       // SI NO COINCIDE, CONTRASEÃ‘A NO VALIDA  
+       }                
     }
     else { // SI $RES ES VACIO.
   
         $logeo=true;
-        displayFormulario(array(),array(),$duplicado,$logeo,$contraseña);
+       /// displayFormulario(array(),array(),$duplicado,$logeo,$contrasena);
  
     }
  
@@ -51,7 +49,7 @@ function veriForm() {
     $camposerroneos = array();
     $duplicado=false;
     $logeo=false;
-    $contraseña=false;    
+    $contrasena=false;    
 // VALIDACIONES DE LOS CAMPOSSS
     foreach ($camposObligatorios as $campoObligatorio) {
         if (!isset($_POST[$campoObligatorio]) || !$_POST[$campoObligatorio]) {
@@ -83,8 +81,8 @@ function veriForm() {
     $password=$_POST["password"];
 
 
-    if ($campospendientes || $camposerroneos) {
-        displayFormulario($campospendientes, $camposerroneos,false,false,false);// SI HAY CAMPOS PENDIENTES O ERRONEOS
+    if ($campospendientes || $camposerroneos || $duplicado==true || $logeo==true || $contrasena==true) {
+        //displayFormulario($campospendientes, $camposerroneos,$duplicado,$logeo,$contrasena);// SI HAY CAMPOS PENDIENTES O ERRONEOS
     } else {  
         
         // SINO COMPRUEBO SI YA EXISTE
@@ -94,7 +92,7 @@ function veriForm() {
 
        if($res>0){          
            $duplicado=true;  // SI EXISTE , MUESTRO EL FORMULARIO DICIENDO QUE EL USUARIO YA ESTA COGIDO
-           displayFormulario($campospendientes, $camposerroneos,$duplicado,$logeo,$contraseña);
+           displayFormulario($campospendientes, $camposerroneos,$duplicado,$logeo,$contrasena);
  
        }else{ // SINO EXISTE INTRODUZCO EL USUARIO EN LA BASE DE DATOS
         cerrarConsulta();
@@ -110,21 +108,19 @@ function veriForm() {
       
 
        gracias();}
-        //ago una consulta para sacar taper where dni=x; 
-
-
+  
 //    }
     }
 }
 
-function displayFormulario($campospendientes, $camposerroneos,$duplicado,$logeo,$contraseña) {
+function displayFormulario($campospendientes, $camposerroneos,$duplicado,$logeo,$contrasena) {
     $error_pendiente = "";
     $error_fallo = "";
 $error_log="";
-$error_contraseña="";
+$error_contrasena="";
     if ($campospendientes) {
         $error_pendiente = '<p class="error2">Hubo algunos problemas con el formulario que usted <br>
-                            presentó. Por favor, rellene los campos con (*), ya que son obligatorios</p>';
+                            presentÃ³. Por favor, rellene los campos con (*), ya que son obligatorios</p>';
     }
     if ($camposerroneos) {
         $error_fallo = '<p class="error1">Los campos marcados no han sido rellenados correctamente, por favor rellenelos.</p>';
@@ -136,8 +132,8 @@ $error_contraseña="";
         
         $error_log='<p class="show">El usuario no existe.</p>';
     }
-    if($contraseña){
-        $error_contraseña='<p class="show"> La contraseña es incorrecta </p>';
+    if($contrasena){
+        $error_contrasena='<p class="show"> La contrasena es incorrecta </p>';
     }
     
 
@@ -145,7 +141,7 @@ $error_contraseña="";
         "error_pendiente" => $error_pendiente,
         "error_fallo" => $error_fallo,
         "error_log"=> $error_log,
-        "error_contraseña" => $error_contraseña,
+        "error_contrasena" => $error_contrasena,
         " validarNombre" => validateField("username", $campospendientes, $camposerroneos),    
         "validarEmail" => validateField("email", $campospendientes, $camposerroneos),
         "validarTelefono" => validateField("telefono", $campospendientes, $camposerroneos),
@@ -192,7 +188,7 @@ function verificar_login($user,$password){
         "nombre" => $user,
     );
             $logeo=false;
-            $contraseña=false;
+            $contrasena=false;
             $duplicado=false;
     // CONTROLADOR LOGIN.
     $res = loadUser($campos,$valores_campos, TABLA2); // CONSULTA QUE HACE SELECT password from tabla where nombre=$user;
@@ -223,36 +219,26 @@ function CrearSesion(){
 
     session_start();
     $_SESSION["username"]=$_POST["usernamelog"];
-    
+ 
+  $campos=array("nombre","id");
+            $valores_campos = array(
+        "nombre" => $_SESSION["username"],
+    );
+            $logeo=false;
+            $contrasena=false;
+            $duplicado=false;
+    // CONTROLADOR LOGIN.
+    $id = loadUser($campos,$valores_campos, TABLA2); // CONSULTA QUE HACE SELECT password from tabla where nombre=$user;
+  $_SESSION["id"]=$id[0];
+  header('Location: index.php?perfil');
     if(!isset ($_SESSION['username'])) { 
- header('Location: index.php');
+ header('Location: index.php?hazteTupper');
 
 
  }
 
-    $datos = array(
-        "nombre" => $_SESSION["username"]);
-            $plantilla = "plantillas/logueo.html";
-        $html = respuesta($datos, $plantilla);
 
-
-        $titulo = "Inicio";
-
-        $datos = array(
-            "contenido" => $html,
-            "titulo" => $titulo
-        );
-        $plantilla = "plantillas/plantilla.php";
-        $html = respuesta($datos, $plantilla);
-        print ($html);
     
 }
-//ELIMINACION DE LA SESION CUANDO PULSA EL BOTON LOG OUT DEL HEADER
-function logOut(){
-    session_destroy();
-}
 
-
-
-?>
 

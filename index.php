@@ -21,8 +21,22 @@ $mensajeCerrarConexion = "";
 $campos = array('id_tupper', 'nombre', 'foto', 'descripcion', 'tipo', 'vegano', 'vegetariano', 'id_solicitante', 'id_usuario', 'solicitado');
 $valores_campos;
 $mensajeAbrirConexion = "";
-$usuario = "1";
-if (!isset($_SESSION["username"])) {
+session_start();
+
+
+if (isset ($_POST["login"])){
+    session_destroy();
+}
+    if (isset( $_SESSION["id"])){
+$usuario = $_SESSION["id"];
+$nombre=$_SESSION["username"];
+}
+else {
+    $usuario="";
+    $nombre="";
+}
+
+
     if (isset($_GET["hazteTupper"]) || isset($_GET["iniciaSesion"])) {
         if ($usuario != "") {
             zona_usuario();
@@ -30,48 +44,65 @@ if (!isset($_SESSION["username"])) {
             if (isset($_POST["Enviar"])) {
                 veriForm();
             } else {
-                DisplayFormulario(array(), array(), $duplicado, $logeo, $contraseña);
+                DisplayFormulario(array(), array(), $duplicado, $logeo, $contrasena);
             }
         }
     } else {
 
         if (isset($_GET["recetas"])) {
-            $contenido = file_get_contents("plantillas/recetas.html");
-            $titulo = "Inicio";
-
-            $datos = array(
-                "contenido" => $contenido,
-                "titulo" => $titulo
-            );
-            if (!isset($_SESSION["username"])) {
-                $plantilla = "plantillas/plantilla.html";
-            } else
-                $plantilla = "plantillas/plantilla.php";
-
-            $html = respuesta($datos, $plantilla);
-            print ($html);
+            
+                   pintar("plantillas/recetas.html",$usuario,$nombre);
+            
         }else {
+            if (isset($_GET["perfil"])){
+                    
+                    zona_usuario();
+                }
 
-            if (isset($_GET["plato"])) {
+             else { if (isset($_GET["plato"])) {
                 $contenido = generar_tupper();
                 $titulo = $_GET['plato'];
-            } else {
-                $contenido = file_get_contents("plantillas/rueda.html");
-                $titulo = "Inicio";
-            }
-            $datos = array(
+            
+                    $datos = array(
                 "contenido" => $contenido,
-                "titulo" => $titulo
-            );
+                "titulo" => $titulo,
+                "usuario" => $nombre,
+                 "id"=> $usuario );
+                    
             if (!isset($_SESSION["username"])) {
                 $plantilla = "plantillas/plantilla.html";
             } else
                 $plantilla = "plantillas/plantilla.php";
             $html = respuesta($datos, $plantilla);
             print ($html);
-        }
+                
+            } else {
+           
+               pintar("plantillas/rueda.html",$usuario,$nombre);
+               
+            }
+           
+        } 
     }
-}
+    }
+   
     
+    
+function pintar($plantilla,$id,$nombre){
     
 
+                $contenido = file_get_contents($plantilla);
+            $titulo = "Inicio";
+                if (!isset($_SESSION["username"])) {
+                $plantilla = "plantillas/plantilla.html";
+            } else{
+            $plantilla = "plantillas/plantilla.php";}
+                     $datos = array(
+                "contenido" => $contenido,
+                "titulo" => $titulo,
+                "usuario" => $nombre,
+                 "id"=> $id );       
+            $html = respuesta($datos, $plantilla);
+            print ($html);
+    
+}
