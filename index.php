@@ -22,87 +22,64 @@ $campos = array('id_tupper', 'nombre', 'foto', 'descripcion', 'tipo', 'vegano', 
 $valores_campos;
 $mensajeAbrirConexion = "";
 session_start();
+$boton='<a href="index.php?iniciaSesion"> <input type="button" class="btn-default" id="login" value="Inicia sesion" style="line-height: 200%;""> </a>'; 
+$haztetupper_perfil='#haztetupper';
+if (isset($_SESSION["id"])) {
+    $haztetupper_perfil=$_SESSION["username"];
+    $boton='<a href="index.php?cierraSesion"> <input type="button" class="btn-default" id="login" value="Cierra sesion" style="line-height: 200%;""> </a>'; 
 
-
-if (isset ($_POST["login"])){
-    session_destroy();
+    if (isset($_GET["cierraSesion"])) {
+        session_destroy();
+         header('Location: index.php');
+    }
+    $usuario = $_SESSION["id"];
+    $nombre = $_SESSION["username"];
+} else {
+    $usuario = "";
+    $nombre = "";
 }
-    if (isset( $_SESSION["id"])){
-$usuario = $_SESSION["id"];
-$nombre=$_SESSION["username"];
-}
-else {
-    $usuario="";
-    $nombre="";
-}
-
-
-    if (isset($_GET["hazteTupper"]) || isset($_GET["iniciaSesion"])) {
-        if ($usuario != "") {
-            zona_usuario();
+//CONTROLADOR////////////////////////////////////////////////////////////////////
+switch (true) {
+    case (isset($_GET["hazteTupper"])):
+    case (isset($_GET["iniciaSesion"])):
+        if (isset($_SESSION["id"])) {
+            $contenido = zona_usuario();
         } else {
             if (isset($_POST["Enviar"])) {
-                veriForm();
+                $contenido=veriForm();
             } else {
-                DisplayFormulario(array(), array(), $duplicado, $logeo, $contrasena);
+                $contenido=DisplayFormulario(array(), array(), $duplicado, $logeo, $contrasena);
             }
         }
-    } else {
-
-        if (isset($_GET["recetas"])) {
-            
-                   pintar("plantillas/recetas.html",$usuario,$nombre);
-            
-        }else {
-            if (isset($_GET["perfil"])){
-                    
-                    zona_usuario();
-                }
-
-             else { if (isset($_GET["plato"])) {
-                $contenido = generar_tupper();
-                $titulo = $_GET['plato'];
-            
-                    $datos = array(
-                "contenido" => $contenido,
-                "titulo" => $titulo,
-                "usuario" => $nombre,
-                 "id"=> $usuario );
-                    
-            if (!isset($_SESSION["username"])) {
-                $plantilla = "plantillas/plantilla.html";
-            } else
-                $plantilla = "plantillas/plantilla.php";
-            $html = respuesta($datos, $plantilla);
-            print ($html);
-                
-            } else {
-           
-               pintar("plantillas/rueda.html",$usuario,$nombre);
-               
-            }
-           
-        } 
-    }
-    }
-   
-    
-    
-function pintar($plantilla,$id,$nombre){
-    
-
-                $contenido = file_get_contents($plantilla);
-            $titulo = "Inicio";
-                if (!isset($_SESSION["username"])) {
-                $plantilla = "plantillas/plantilla.html";
-            } else{
-            $plantilla = "plantillas/plantilla.php";}
-                     $datos = array(
-                "contenido" => $contenido,
-                "titulo" => $titulo,
-                "usuario" => $nombre,
-                 "id"=> $id );       
-            $html = respuesta($datos, $plantilla);
-            print ($html);
-    
+        break;
+    case (isset($_GET["recetas"])):
+        $plantilla = "plantillas/recetas.html";
+        $contenido = file_get_contents($plantilla);
+        break;
+    case (isset($_GET["perfil"])):
+        $contenido = zona_usuario();
+        break;
+    case (isset($_GET["plato"])):
+        $contenido = generar_tupper();
+        $titulo = $_GET['plato'];
+        break;
+    default:
+        $plantilla = "plantillas/rueda.html";
+        $contenido = file_get_contents($plantilla);
+        break;
 }
+////////////////////////////////////////////////////////////////////////////////
+
+
+$titulo = "Inicio";
+$plantilla = "plantillas/plantilla.html";
+$datos = array(
+    "contenido" => $contenido,
+    "boton"=>$boton,
+    "haztetupper_perfil"=>$haztetupper_perfil,
+    "titulo" => $titulo,
+    "usuario" => $nombre,
+    "id" => $usuario);
+$html = respuesta($datos, $plantilla);
+print ($html);
+

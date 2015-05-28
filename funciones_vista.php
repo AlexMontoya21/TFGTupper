@@ -148,16 +148,7 @@ function zona_usuario() {
         "c_ta" => $c_ta,
     );
     $html = respuesta($datos, $contenido);
-    $titulo = "Hazte Tupper";
-    $datos = array(
-        "contenido" => $html,
-        "titulo" => $titulo,
-        "usuario" => $_SESSION["username"],
-       "id"=> $_SESSION["id"] );
-
-    $plantilla = "plantillas/plantilla.php";
-    $html = respuesta($datos, $plantilla);
-    print ($html);
+     return $html;
 }
 
 //PARA GENERAR LOS TUPPERS EN LA SECCION DE COGER TUPPERS/////////////////////////
