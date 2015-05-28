@@ -135,6 +135,7 @@ function info(tipo_id, id) {
     peticion_http.open("POST", 'mas_info.php', true);
     peticion_http.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     peticion_http.send(parametros_json);
+    console.log('todo');
 
 
 }
@@ -181,10 +182,6 @@ window.onload = function () {
         notificaciones();
         setInterval("notificaciones()", 30000);
     }
-    else {
-        document.getElementById('us').innerHTML = '#HazteTupper';
-
-    }
 }
 function notificaciones() {
     var usuario = document.getElementById('usuario').value;
@@ -194,7 +191,6 @@ function notificaciones() {
             if (peticion_http.status == 200) {
                 var respuesta_json = peticion_http.responseText;
                 var resultado = eval("(" + respuesta_json + ")");
-                document.getElementById('us').innerHTML = resultado.usuario;
                 if (resultado.notificaciones > 0) {
                     document.getElementById('n').innerHTML = resultado.notificaciones;
                     $('#n').css('display', 'inline-block');

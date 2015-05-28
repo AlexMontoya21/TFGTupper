@@ -21,57 +21,65 @@ $mensajeCerrarConexion = "";
 $campos = array('id_tupper', 'nombre', 'foto', 'descripcion', 'tipo', 'vegano', 'vegetariano', 'id_solicitante', 'id_usuario', 'solicitado');
 $valores_campos;
 $mensajeAbrirConexion = "";
-$usuario = "1";
-if (!isset($_SESSION["username"])) {
-    if (isset($_GET["hazteTupper"]) || isset($_GET["iniciaSesion"])) {
-        if ($usuario != "") {
-            zona_usuario();
+session_start();
+$boton='<a href="index.php?iniciaSesion"> <input type="button" class="btn-default" id="login" value="Inicia sesion" style="line-height: 200%;""> </a>'; 
+$haztetupper_perfil='#haztetupper';
+if (isset($_SESSION["id"])) {
+    $haztetupper_perfil=$_SESSION["username"];
+    $boton='<a href="index.php?cierraSesion"> <input type="button" class="btn-default" id="login" value="Cierra sesion" style="line-height: 200%;""> </a>'; 
+
+    if (isset($_GET["cierraSesion"])) {
+        session_destroy();
+         header('Location: index.php');
+    }
+    $usuario = $_SESSION["id"];
+    $nombre = $_SESSION["username"];
+} else {
+    $usuario = "";
+    $nombre = "";
+}
+//CONTROLADOR////////////////////////////////////////////////////////////////////
+switch (true) {
+    case (isset($_GET["hazteTupper"])):
+    case (isset($_GET["iniciaSesion"])):
+        if (isset($_SESSION["id"])) {
+            $contenido = zona_usuario();
         } else {
             if (isset($_POST["Enviar"])) {
-                veriForm();
+                $contenido=veriForm();
             } else {
-                DisplayFormulario(array(), array(), $duplicado, $logeo, $contraseña);
+                $contenido=DisplayFormulario(array(), array(), $duplicado, $logeo, $contrasena);
             }
         }
-    } else {
-
-        if (isset($_GET["recetas"])) {
-            $contenido = file_get_contents("plantillas/recetas.html");
-            $titulo = "Inicio";
-
-            $datos = array(
-                "contenido" => $contenido,
-                "titulo" => $titulo
-            );
-            if (!isset($_SESSION["username"])) {
-                $plantilla = "plantillas/plantilla.html";
-            } else
-                $plantilla = "plantillas/plantilla.php";
-
-            $html = respuesta($datos, $plantilla);
-            print ($html);
-        }else {
-
-            if (isset($_GET["plato"])) {
-                $contenido = generar_tupper();
-                $titulo = $_GET['plato'];
-            } else {
-                $contenido = file_get_contents("plantillas/rueda.html");
-                $titulo = "Inicio";
-            }
-            $datos = array(
-                "contenido" => $contenido,
-                "titulo" => $titulo
-            );
-            if (!isset($_SESSION["username"])) {
-                $plantilla = "plantillas/plantilla.html";
-            } else
-                $plantilla = "plantillas/plantilla.php";
-            $html = respuesta($datos, $plantilla);
-            print ($html);
-        }
-    }
+        break;
+    case (isset($_GET["recetas"])):
+        $plantilla = "plantillas/recetas.html";
+        $contenido = file_get_contents($plantilla);
+        break;
+    case (isset($_GET["perfil"])):
+        $contenido = zona_usuario();
+        break;
+    case (isset($_GET["plato"])):
+        $contenido = generar_tupper();
+        $titulo = $_GET['plato'];
+        break;
+    default:
+        $plantilla = "plantillas/rueda.html";
+        $contenido = file_get_contents($plantilla);
+        break;
 }
-    
-    
+////////////////////////////////////////////////////////////////////////////////
+
+
+$titulo = "Inicio";
+$plantilla = "plantillas/plantilla.html";
+$datos = array(
+    "contenido" => $contenido,
+    "boton"=>$boton,
+    "haztetupper_perfil"=>$haztetupper_perfil,
+    "titulo" => $titulo,
+    "usuario" => $nombre,
+    "id" => $usuario);
+$html = respuesta($datos, $plantilla);
+print ($html);
 

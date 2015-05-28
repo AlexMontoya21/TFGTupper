@@ -106,7 +106,7 @@ function zona_usuario() {
         $notificaciones.=$n;
     }
     if ($c_n == 0) {
-        $notificaciones = "<p>¡No tienes Notificaciones!, de momento...</p>";
+        $notificaciones = "<p>Â¡No tienes Notificaciones!, de momento...</p>";
     }
 //generar mis tuppers y contador
     $mis_tuppers_array = tupper('id_usuario', $usuario);
@@ -117,7 +117,7 @@ function zona_usuario() {
         $c_mt++;
     }
     if ($c_mt == 0) {
-        $mis_tuppers = "<p>¡No tienes Tuppers!, de momento...</p>";
+        $mis_tuppers = "<p>Â¡No tienes Tuppers!, de momento...</p>";
     }
 //generar tuppers adquiridos y contador
     $tuppers_adquiridos_array = tupper('id_solicitante', $usuario);
@@ -128,7 +128,7 @@ function zona_usuario() {
         $c_ta++;
     }
     if ($c_ta == 0) {
-        $tuppers_adquiridos = "<p>¡No has pedido Tuppers!, de momento...</p>";
+        $tuppers_adquiridos = "<p>Â¡No has pedido Tuppers!, de momento...</p>";
     }
 
 //relleno de la plantilla
@@ -148,14 +148,7 @@ function zona_usuario() {
         "c_ta" => $c_ta,
     );
     $html = respuesta($datos, $contenido);
-    $titulo = "Hazte Tupper";
-    $datos = array(
-        "contenido" => $html,
-        "titulo" => $titulo
-    );
-    $plantilla = "plantillas/plantilla.html";
-    $html = respuesta($datos, $plantilla);
-    print ($html);
+     return $html;
 }
 
 //PARA GENERAR LOS TUPPERS EN LA SECCION DE COGER TUPPERS/////////////////////////
