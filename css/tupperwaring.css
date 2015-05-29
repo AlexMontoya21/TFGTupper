@@ -324,7 +324,7 @@ span.vegano,span.vegetariano,span.sin_gluten{
     font-weight: bold;
 }
 input[type="checkbox"] {
-    display: none;
+    /* display: none; */
 }
 
 
@@ -548,7 +548,7 @@ p.vegetariano:hover{
     color:#66A53B;
 }
 input[type="checkbox"] {
-    display: none;
+    /* display: none; */
 }
 
 
@@ -739,7 +739,7 @@ h3 {
     text-align: left;
     color: #842A58;
 }
- #zona_usuario div.contenido_info_usuario{
+#zona_usuario div.contenido_info_usuario{
     margin-top: 25px;
     padding-left: 0px;
     margin: 50px auto 0px auto;
@@ -747,7 +747,7 @@ h3 {
     transition: all 700ms;
 }
 
- #zona_usuario  .contenido_info_usuario div.foto_usuario {
+#zona_usuario  .contenido_info_usuario div.foto_usuario {
     width: 110px;
     height: 110px;
     border-radius: 50%;
@@ -761,19 +761,19 @@ h3 {
     transition: all 500ms;
     background-size: 100% auto;
 }
- #zona_usuario  .contenido_info_usuario div.gorro {
+#zona_usuario  .contenido_info_usuario div.gorro {
     background-image: url(../img/platos/gorro.png);
     background-size: 100% auto;
     width: 55px;
-height: 0px;
-  top: 0px;
+    height: 0px;
+    top: 0px;
     position: absolute;
     right: 22px;
     overflow: hidden;
     transition: all 500ms;
 }
 
- #zona_usuario  .contenido_info_usuario div.info_usuario{
+#zona_usuario  .contenido_info_usuario div.info_usuario{
     float:left;
     height: 58px;
     text-align: left;
@@ -784,7 +784,7 @@ height: 0px;
     margin-top:7px;
     transition: all 700ms;
 }
- #zona_usuario  .contenido_info_usuario div.info_usuario h1{
+#zona_usuario  .contenido_info_usuario div.info_usuario h1{
     text-align: left;
     font-size: 34px;
     margin: 0px;
@@ -792,16 +792,16 @@ height: 0px;
     display: inline-block;
     font-family: 'Yanone Kaffeesatz', sans-serif !important;
 }
- #zona_usuario  .contenido_info_usuario div.info_usuario h3{
+#zona_usuario  .contenido_info_usuario div.info_usuario h3{
     padding: 0;
     font-size: 15px;
     margin: 0;
     text-align: left;
 }
- #zona_usuario  .contenido_info_usuario div.info_usuario p{
+#zona_usuario  .contenido_info_usuario div.info_usuario p{
     margin: 0;
 }
- #zona_usuario  .contenido_info_usuario  .editar{
+#zona_usuario  .contenido_info_usuario  .editar{
     margin-left: 9px;
     width: 0px;
     margin-top: 17px;
@@ -818,27 +818,27 @@ height: 0px;
     text-transform: capitalize;
     font-size: 12px;
 }
- #zona_usuario  .contenido_info_usuario  .editar:hover{
+#zona_usuario  .contenido_info_usuario  .editar:hover{
     color:white;
     background-color: #2D9DA0;  
 }
 
- #zona_usuario .contenido {
+#zona_usuario .contenido {
     float: left;
     width: 100%;
     margin-top: 20px;
 }
 
- #zona_usuario  .formulario{
-  height: 0px;
-  overflow: hidden;
-  transition: height 600ms;
-  display: none;
-  text-align: left;
-  padding: 10px;
-  background-color: #ECECEC;
-  border-radius: 5px;
-  margin-top: 31px;
+#zona_usuario  .formulario{
+    height: 0px;
+    overflow: hidden;
+    transition: all 600ms;
+    display: none;
+    text-align: left;
+    padding: 10px;
+    background-color: #ECECEC;
+    border-radius: 5px;
+    margin-top: 31px;
 }
 
 #zona_usuario .gestion .vegano,.gestion .vegetariano,.gestion .sin_gluten{
@@ -959,9 +959,9 @@ div.info  .gestion .sin_gluten,div.info .gestion .sin_gluten:hover{
 
 
 .popup_usuario{
-padding-top: 60px;
-  height: auto;
-  overflow: hidden;
+    padding-top: 60px;
+    height: auto;
+    overflow: hidden;
 }
 
 .popup_usuario div.foto_usuario {
@@ -980,8 +980,8 @@ padding-top: 60px;
     background-image: url(../img/platos/gorro.png);
     background-size: 100% auto;
     width: 55px;
-height: 50px;
-  top: -60px;
+    height: 50px;
+    top: -60px;
     position: absolute;
     right: 22px;
     overflow: hidden;
@@ -989,16 +989,16 @@ height: 50px;
 }
 
 .popup_usuario div.info_usuario{
-  float: left;
-  height: 130px;
-  text-align: left;
-  margin-left: 15px;
-  border-left: solid 3px #ECECEC;
-padding: 10px 0px 0px 15px;
-  overflow: hidden;
-  margin-top: -10px;
-  transition: all 700ms;
-  width: 300px;
+    float: left;
+    height: 130px;
+    text-align: left;
+    margin-left: 15px;
+    border-left: solid 3px #ECECEC;
+    padding: 10px 0px 0px 15px;
+    overflow: hidden;
+    margin-top: -10px;
+    transition: all 700ms;
+    width: 300px;
 }
 .popup_usuario div.info_usuario h1{
     text-align: left;
@@ -1011,7 +1011,7 @@ padding: 10px 0px 0px 15px;
 .popup_usuario div.info_usuario h3{
     padding: 0;
     font-size: 21px;
-  margin: 0 0 10px 0;
+    margin: 0 0 10px 0;
     text-align: left;
 }
 .popup_usuario div.info_usuario p{
@@ -1209,8 +1209,8 @@ div.exito{
 }
 .popup-content .exito{
     width: 400px;
-      text-align: center;
-        margin-bottom: 7px;
+    text-align: center;
+    margin-bottom: 7px;
 }
 .popup-content .exito h3 {
     font-size: 36px;
@@ -1225,10 +1225,10 @@ div.exito{
 
 }
 .popup-content .exito input[type=button] {
-  width: 84px;
-  float: none;
-  padding: 2px;
-  min-width: 0;
+    width: 84px;
+    float: none;
+    padding: 2px;
+    min-width: 0;
 
 }
 
@@ -1315,4 +1315,47 @@ input[type=button].notifi.naranja:hover{background-color: #FC6344;  color:white;
 .resultado .col-lg-4,.resultado .col-md-6,.resultado .col-sm-6,.resultado .col-xs-12{
     margin-left: 0px;
     margin-right: 0px;
+}
+
+
+////FORMULARIO SUBIR TUPPER/////////////////////////////////////////////////////
+.formulario form {
+    width: 600px;
+}
+.formulario input[type=text] {width: 300px;}
+.formulario textarea {
+    resize: vertical;
+    width: 100%;
+    min-height: 200px;
+}
+
+.formulario input[type=submit] {
+    float: right;
+}
+
+.formulario .mce-container.mce-menubar.mce-toolbar.mce-first.mce-stack-layout-item {
+    display: none !important;
+}
+.formulario label{
+    margin: 25px 0px 10px 0px;
+}
+.formulario .sugerencia{
+    font-size: 12px;
+    color:#aaa;
+    cursor: default;
+}
+.formulario select{
+    margin-right: 15px;
+}
+
+.formulario input[type=checkbox] {
+    display: inline; 
+}
+.formulario .mce-btn {
+    background: none;
+    border: solid 0px;
+    box-shadow: 0px 0px 0px 0px;
+}
+.formulario #descripcion_tupper button{
+    padding: 2px 5px;
 }
