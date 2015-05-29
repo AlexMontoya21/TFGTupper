@@ -1,42 +1,90 @@
 
-            <!--main-->
-            <div class="row border panel-body">
-                <div class="col-xs-12 col-sm-12 col-md-6">
-                    <!--imagen principal ¿Carrusel de fotos? -->
-                    <div class="row"> <!--titulo--><div class="col-xs-12 col-sm-12 col-md-12 panel-title"> Tuppers Caseros </div> </div>
-                    <div class="row"> <!--contenido--><div class="col-xs-12 col-sm-12 col-md-12 panel-info "></div> <img src="img/ruleta.jpg" alt="logo"  class="img-rounded" style="width: 400px; height: 400px;"> </div>
+<script src="../js/jquery-2.1.4.min.js" type="text/javascript"></script>
+<script>
+    $(document).ready(function () {
+
+        /*  $("#user_tupper").click( function () {            
+         $("#formulario").fadeIn(1000);   
+         
+         });*/
+
+
+        $("#user_tupper").click(function () {
+
+            $("#formulario").each(function () {
+                displaying = $(this).css("display");
+
+
+                if (displaying == "block") {
+                    $(this).fadeOut('slow', function () {
+                        $(this).css("display", "none");
+                    });
+                } else {
+                    $(this).fadeIn('slow', function () {
+                        $(this).css("display", "block");
+                    });
+                }
+            });
+        });
+
+
+        $("#user_tupperNo").click(function () {
+            alert("No puedes subir tuppers. Regístrate!");
+            $("#formulario").css("display", "none");
+
+        });
+
+         $("#user_tupperNo").click(function () {
+            alert("No puedes subir tuppers. Regístrate!");
+            $("#formulario").css("display", "none");
+
+        }); 
+
+
+    });
+
+</script>
+
+<!--main-->
+<div class="row border panel-body">
+    <div class="col-xs-12 col-sm-12 col-md-6">
+        <!--imagen principal ¿Carrusel de fotos? -->
+        <div class="row"> <!--titulo--><div class="col-xs-12 col-sm-12 col-md-12 panel-title"> Tuppers Caseros </div> </div>
+        <div class="row" id="rueda" > <!--contenido--><div class="col-xs-12 col-sm-12 col-md-12 panel-info "></div> 
+            <img src="img/rueda.png" alt="logo"  class="img-rounded" style="width: 400px; height: 400px;"> </div>
+    </div>
+
+<!--última entrada de tupper -->
+<div class="col-xs-12 col-sm-12 col-md-6">
+    <div class="row">   <div class="col-xs-12 col-sm-12 col-md-12 panel-title"><h2>Sólo para usuarios registrados</h2></div> </div>
+    <div class="row">   <div class="col-xs-12 col-sm-12 col-md-12 modal-header"><h2>¿Subir tupper?</h2></div> </div>
+
+    <div class="row">   <div class="col-xs-12 col-sm-12 col-md-12 modal-body">
+
+
+
+
+            <input type="button" name="user_tupper" id="user_tupper" value="Soy un usuario registrado">
+            <input type="button" name="user_tupperNo" id="user_tupperNo" value="No soy un usuario registrado">
+            <br>
+            <form>
+                <div id="formulario" style="display: none;" class="form-horizontal">
+                    <div class="form-group">Nombre del tupper <input type="text" name="nombre"></div>
+                    <div class="form-group">Tipo <input type="text" name="tipo"><br></div>
+                    <div class="form-group"> Foto <input type="file" name="foto"><br></div>
+                    <div class="form-group">Descripción <input type="text" name="descripcion"></div>
+
                 </div>
+            </form>
 
-                <!--última entrada de tupper -->
-                <div class="col-xs-12 col-sm-12 col-md-6">
-                    <div class="row">   <div class="col-xs-12 col-sm-12 col-md-12 panel-title"><h2>Recién salido de la cocina</h2></div> </div>
-                    <div class="row">   <div class="col-xs-12 col-sm-12 col-md-12 modal-header"><h2>**** 75% Cocina: Lorena Marchán</h2></div> </div>
-                    <div class="row">   <div class="col-xs-12 col-sm-12 col-md-12 modal-body">
-                            <h2>Delicioso guacamole mejicano. 
-                                Tupertruco: 
-                                Para evitar que el guacamole se oxide y oscurezca, 
-                                se recomienda conservarlo en un recipiente hermético, 
-                                por ejemplo un Astral, junto con su propio hueso.
-                            </h2>
-                        </div> 
-                    </div>
-                    
-                    <div class="row">   <div class="col-xs-12 col-sm-12 col-md-12 modal-content">  Ingredientes:
-                           
-                            • 2 Aguacates
-                            • Zumo de 3  limas
-                            • 6 hojas de Cilantro
-                            • 4 gotas de Tabasco
-                            Para los dados de salmón:
-                            • 200 g de salmón fresco 
-                            • 1 pizca de sal
-                            • 1 chorrito de aceite de oliva
-                            Otros:
-                            • 4 Tortillas mejicanas de maíz
-                            • 8 tomates cherry
-                           
-                        </div></div>
+        </div> 
+    </div>
 
-                </div> 
-            </div>    
-            
+    <div class="row">   <div class="col-xs-12 col-sm-12 col-md-12 modal-content">  Ingredientes:
+
+
+
+        </div></div>
+
+</div> 
+</div>    
