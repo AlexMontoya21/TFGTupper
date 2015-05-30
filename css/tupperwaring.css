@@ -5,7 +5,7 @@ and open the template in the editor.
 */
 /* 
     Created on : 17-may-2015, 20:08:44
-    Author     : Lorena March�n
+    Author     : Lorena March?n
 */
 
 #plato {
@@ -209,6 +209,7 @@ html {
     text-align: left;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;;
+    width: 100%;
 }
 
 .foto {
@@ -240,16 +241,24 @@ html {
     height: 5px;
 }
 
-.tupper p {
-    font-size: 12px;
-    height: 45px;
-    overflow: hidden;
-    border-bottom: solid 1px #5e5e5e;
-    position: relative;
-    color: #5e5e5e;
-    cursor: pointer;
+.tupper .descripcion {
+  font-size: 12px;
+  height: 49px;
+  overflow: hidden;
+  border-bottom: solid 1px #5e5e5e;
+  position: relative;
+  color: #5e5e5e;
+  cursor: pointer;
+  margin-bottom: 7px;
 }
-.tupper p:hover {
+.tupper .descripcion h2{
+    font-size: 16px;
+    font-weight: normal;
+    color:inherit;
+}
+
+
+.tupper .descripcion:hover {
     color: #000;
 }
 .tupper .leermas{
@@ -353,14 +362,20 @@ input[type="checkbox"] {
     font-family: 'Yanone Kaffeesatz', sans-serif;
 }
 
-.popup-content p {
+.popup-content .descripcion {
     font-size: 12px;
     height: auto;
     overflow: hidden;
     width: 415px;
     /* border-bottom: solid 1px #5e5e5e; */
     margin-top: 20px;
-    color: #5e5e5e;
+    color: #000;
+}
+
+.popup-content .descripcion a {
+      font-size: 13px;
+      font-weight: bold;
+      text-decoration: underline;
 }
 
 .popup-content .contenido {
@@ -892,16 +907,21 @@ div.info h3{
 
 }
 div.info .descripcion {
-    margin-left: 90px;
+    margin-left: 10px;
     margin-right: 10px;
+    margin-bottom: 10px;
+    max-height: 400px;
     height: auto;
-    overflow: hidden;
+    overflow: auto;
     text-align: left;
     font-size: 13px;
     padding-bottom: 20px;
-    transition: height 1s;
-    -webkit-transition: height 1s;
+    width: 565px;
+}
 
+div.info .descripcion h2{
+        font-size: 22px;
+        color: inherit;
 }
 
 div.info .foto {
@@ -1038,7 +1058,7 @@ div.exito{
 }
 
 .popup-content h2 {
-    font-size: 40px;
+    font-size: 36px;
     color: #4C1131;
     font-family: 'Yanone Kaffeesatz', sans-serif;
     z-index: 1;
@@ -1053,15 +1073,6 @@ div.exito{
     font-family: 'Yanone Kaffeesatz', sans-serif;
 }
 
-.popup-content p {
-    font-size: 12px;
-    height: auto;
-    overflow: hidden;
-    width: 415px;
-    /* border-bottom: solid 1px #5e5e5e; */
-    margin-top: 20px;
-    color: #5e5e5e;
-}
 
 .popup-content .contenido {
     position: relative;
@@ -1322,7 +1333,7 @@ input[type=button].notifi.naranja:hover{background-color: #FC6344;  color:white;
 .formulario form {
     width: 600px;
 }
-.formulario input[type=text] {width: 300px;}
+.formulario input[type=text] {width: 308px;}
 .formulario textarea {
     resize: vertical;
     width: 100%;
@@ -1337,7 +1348,7 @@ input[type=button].notifi.naranja:hover{background-color: #FC6344;  color:white;
     display: none !important;
 }
 .formulario label{
-    margin: 25px 0px 10px 0px;
+    margin: 10px 0px 10px 0px;
 }
 .formulario .sugerencia{
     font-size: 12px;

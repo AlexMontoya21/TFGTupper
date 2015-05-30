@@ -20,31 +20,52 @@
     </div>
     <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12" style="padding: 0">
         <div class='formulario'>
+            <form method="post" enctype="multipart/form-data" action="subirtupper.php"><table  style=" width: 100%">
+                    <tr >
+                        <td>       
+                            <label for="nombre_tupper">Nombre</label>
+                        </td>
+                        <td>
+                            <input type="text" name="nombre_tupper" id="nombre_tupper" maxlength="30"> <br>
+                            <span class="sugerencia">(maximo 30 caracteres)</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width:120px;"> 
+                    <label for="imagen_tupper">Foto del Tupper </label>
+                     </td>
+                    <td> 
+                    <input type="file" name="imagen_tupper"> 
+                     </td>
+                    </tr>
+                    <tr>
+                        <td> 
+                    <label for="tipo_tupper">Sobre el tupper</label>
+                     </td>
+                    <td> 
+                    <select id="tipo_tupper" name="tipo_tupper">
+                        <option>Carne</option>
+                        <option>Pescado </option>
+                    </select> 
 
-    <h3>Sube tu tupper</h3>
-    <br>
-    <form method="post" action="">
-        <label for="nombre_tupper">Nombre</label><br>
-        <input type="text" name="nombre_tupper" id="nombre_tupper" maxlength="30"> 
-        <span class="sugerencia">(maximo 30 caracteres)</span>
-        <br> 
-        <label for="tipo_tupper">Sobre el tupper</label><br>
-        <select id="tipo_tupper" name="tipo_tupper">
-            <option>Tipo</option>
-            <option>hola que tal estas </option>
-        </select> 
-
-        <input type="checkbox" name="vegano_tupper">Vegano
-        <input type="checkbox" name="vegano_tupper">Vegetariano
-        <input type="checkbox" name="vegano_tupper">Sin Gluten
-        <br>
-        <label for="descripcion_tupper">Descripcion</label>
-        <br>
-        <textarea id="descripcion_tupper" name="descripcion_tupper"></textarea>
-        <br>
-        <input type="submit" name="subir_tupper">
-
-    </form>
+                    <input type="checkbox" name="vegano_tupper">Vegano
+                    <input type="checkbox" name="vegetariano_tupper">Vegetariano
+                    <input type="checkbox" name="sin_gluten_tupper">Sin Gluten
+                     </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"> 
+                    <label for="descripcion_tupper">Descripcion</label>
+                    <textarea id="descripcion_tupper" name="descripcion_tupper"></textarea>
+ </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" style="padding-top: 15px;"> 
+                    <input type="submit" name="subir_tupper">
+                     </td>
+                    </tr>
+                </table>
+            </form>
         </div>
 
 
@@ -149,42 +170,44 @@
         }
     });
     function formulario() {
-        if(parseInt($('.formulario').css('height'))>=550){
-            $('.formulario').css('min-height', '0px');     
-            $('.formulario').css('height', '0px'); 
-        setTimeout(function () {$('.formulario').css('display', 'none');}, 500);
+        if (parseInt($('.formulario').css('height')) >= 395) {
+            $('.formulario').css('min-height', '0px');
+            $('.formulario').css('height', '0px');
+            setTimeout(function () {
+                $('.formulario').css('display', 'none');
+            }, 500);
         }
-        else{
-           $('.formulario').css('display', 'block');
-        setTimeout(function () {
-           $('.formulario').css('min-height', '550px');
-        }, 1);                    
-        setTimeout(function () {
-           $('.formulario').css('height', 'auto');
-        }, 600);
+        else {
+            $('.formulario').css('display', 'block');
+            setTimeout(function () {
+                $('.formulario').css('min-height', '395px');
+            }, 1);
+            setTimeout(function () {
+                $('.formulario').css('height', 'auto');
+            }, 600);
         }
-        
-        
+
+
     }
 
 
-        tinymce.init({
-            selector: "textarea",
-            theme: "modern",
-            plugins: [
-        "wordcount",
-    ],
-            toolbar1: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image",
-            templates: [
-                {
-                    title: 'Test template 1',
-                    content: 'Test 1'
-                },
-                {
-                    title: 'Test template 2',
-                    content: 'Test 2'
-                }
-    ]
-        });
+    tinymce.init({
+        selector: "textarea",
+        theme: "modern",
+        plugins: [
+            "wordcount",
+        ],
+        toolbar1: "insertfile undo redo | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image",
+        templates: [
+            {
+                title: 'Test template 1',
+                content: 'Test 1'
+            },
+            {
+                title: 'Test template 2',
+                content: 'Test 2'
+            }
+        ]
+    });
 
 </script>

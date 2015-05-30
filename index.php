@@ -24,6 +24,8 @@ $mensajeAbrirConexion = "";
 session_start();
 $boton='<a href="index.php?iniciaSesion"> <input type="button" class="btn-default" id="login" value="Inicia sesion" style="line-height: 200%;""> </a>'; 
 $haztetupper_perfil='#haztetupper';
+$titulo = "Inicio";
+$plantilla = "plantillas/plantilla.html";
 if (isset($_SESSION["id"])) {
     $haztetupper_perfil=$_SESSION["username"];
     $boton='<a href="index.php?cierraSesion"> <input type="button" class="btn-default" id="login" value="Cierra sesion" style="line-height: 200%;""> </a>'; 
@@ -48,13 +50,14 @@ switch (true) {
             if (isset($_POST["Enviar"])) {
                 $contenido=veriForm();
             } else {
+                
                 $contenido=DisplayFormulario(array(), array(), $duplicado, $logeo, $contrasena);
             }
         }
         break;
     case (isset($_GET["recetas"])):
-        $plantilla = "plantillas/recetas.html";
-        $contenido = file_get_contents($plantilla);
+        $plantilla2 = "plantillas/recetas.html";
+        $contenido = file_get_contents($plantilla2);
         break;
     case (isset($_GET["perfil"])):
         $contenido = zona_usuario();
@@ -64,15 +67,14 @@ switch (true) {
         $titulo = $_GET['plato'];
         break;
     default:
-        $plantilla = "plantillas/rueda.html";
-        $contenido = file_get_contents($plantilla);
+        $plantilla2 = "plantillas/rueda.html";
+        $contenido = file_get_contents($plantilla2);
         break;
 }
 ////////////////////////////////////////////////////////////////////////////////
 
 
-$titulo = "Inicio";
-$plantilla = "plantillas/plantilla.html";
+
 $datos = array(
     "contenido" => $contenido,
     "boton"=>$boton,
