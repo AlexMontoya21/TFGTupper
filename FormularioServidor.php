@@ -28,7 +28,8 @@ if (!isset($_SESSION["username"])) {
                 CrearSesion(); // LOGEO (Creacion de sesion etc)                 
             } else {
                 $contrasena = true;
-                //  displayFormulario(array(),array(),$duplicado,$logeo,$contrasena);
+                
+                // displayFormulario(array(),array(),$duplicado,$logeo,$contrasena);
                 // SI NO COINCIDE, CONTRASEÃ‘A NO VALIDA  
             }
         } else { // SI $RES ES VACIO.
@@ -77,7 +78,7 @@ function veriForm() {
 
 
     if ($campospendientes || $camposerroneos || $duplicado == true || $logeo == true || $contrasena == true) {
-        //displayFormulario($campospendientes, $camposerroneos,$duplicado,$logeo,$contrasena);// SI HAY CAMPOS PENDIENTES O ERRONEOS
+       // displayFormulario($campospendientes, $camposerroneos,$duplicado,$logeo,$contrasena);// SI HAY CAMPOS PENDIENTES O ERRONEOS
     } else {
 
         // SINO COMPRUEBO SI YA EXISTE
@@ -128,6 +129,7 @@ function displayFormulario($campospendientes, $camposerroneos, $duplicado, $loge
         $error_log = '<p class="show">El usuario no existe.</p>';
     }
     if ($contrasena) {
+        
         $error_contrasena = '<p class="show"> La contrasena es incorrecta </p>';
     }
 
