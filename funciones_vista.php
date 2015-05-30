@@ -27,7 +27,7 @@ function tupper($id, $usuario) {
         $tuppers[$key] = "";
         $tuppers[$key].='<div class="t">';
         $tuppers[$key].='<div class="contenido">';
-        $tuppers[$key].='<div class="foto" style="background-image:url(\'img/platos/' . $tupper[1] . '\')">';
+        $tuppers[$key].='<div class="foto" style="background-image:url(\'img/foto_tuppers/' . $tupper[1] . '\')">';
         $tuppers[$key].='</div>';
         $tuppers[$key].="<h3>$tupper[2] $de_usuario<span class='estado'>&nbsp;&nbsp;|&nbsp;&nbsp;$estado</span></h3>";
         $tuppers[$key].='<div class="gestion">';
