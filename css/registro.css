@@ -109,3 +109,19 @@ body {
    font-weight:bold; 
    border-radius:3px;
 }
+#mdni,#musuario,#mcontraseñá,#memail,#mtelefono{    
+        height: 0px;
+    overflow: hidden;
+    transition: all 600ms;
+    display: none;
+  //  text-align: left;
+  //  padding: 10px;
+    background-color: #309FA1;
+    color: white;
+    font-weight: bold;
+    border-radius: 5px;
+    text-align: center;
+     overflow:hidden;
+}
+#mdni .open{max-height:20px;
+}

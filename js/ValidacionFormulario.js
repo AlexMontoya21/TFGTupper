@@ -22,7 +22,23 @@ function validaDNI() { //valido DNI
     var letras = ['T', 'R', 'W', 'A', 'G', 'M', 'Y', 'F', 'P', 'D', 'X',
         'B', 'N', 'J', 'Z', 'S', 'Q', 'V', 'H', 'L', 'C', 'K', 'E', 'T'];
     if (!(/^\d{8}[A-Z]$/.test(valor)) && valor.charAt(8).toUpperCase() !== letras[(valor.substring(0, 8)) % 23]) {
-        alert("Dni incorrecto. introduzca el número y la letra");
+         $(document).ready(function(){
+  $("#mdni").toggle(function(){
+    $(this).animate({height:20},200);
+  });
+});
+     
+        $('#mdni').css('display', 'block');   
+        setTimeout(function () {
+                $('#mdni').css('min-height', '0px');
+            }, 1);
+            
+            setTimeout(function () {
+                $('#mdni').css('height', 'auto').slideDown(4000);
+            }, 10);     
+        
+        
+      
         document.getElementById("dni").value = ""; /*Deja el Campo vacio*/
         document.getElementById("Enviar").disabled = true;/*Deshabilita el boton envio*/
         return false;
@@ -34,7 +50,14 @@ function validaEmail() { // valido EMAIL
     if ((/\w+([.-_]\w)*@\w+(.\w)+/.test(email))) {
         return true;
     } else {
-        alert("Mail incorrecto. Escriba los datos de forma correcta");
+         $('#memail').css('display', 'block');   
+        setTimeout(function () {
+                $('#memail').css('min-height', '0px');
+            }, 1);
+            
+            setTimeout(function () {
+                $('#memail').css('height', 'auto').slideDown(4000);
+            }, 10);     
         document.getElementById("email").value = ""; /*Deja el Campo vacio*/
         document.getElementById("Enviar").disabled = true;/*Deshabilita el boton envio*/
         return false;
@@ -44,7 +67,14 @@ function validaTfno() {    /*Valida el telefono */
     var valor = document.getElementById("telefono").value;
 
     if (!(/^[6,9]{1}\d{8}$/.test(valor))) {
-        alert("Telefono incorrecto, has introducido algun caracter no numerico o mas de 9 números.");
+         $('#mtelefono').css('display', 'block');   
+        setTimeout(function () {
+                $('#mtelefono').css('min-height', '0px');
+            }, 1);
+            
+            setTimeout(function () {
+                $('#mtelefono').css('height', 'auto').slideDown(4000);
+            }, 10);     
         document.getElementById("telefono").value = ""; /*Deja el Campo vacio*/
         document.getElementById("Enviar").disabled = true;/*Deshabilita el boton envio*/
         return false;
