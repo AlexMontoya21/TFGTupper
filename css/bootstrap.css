@@ -187,7 +187,7 @@ table {
 }
 td,
 th {
-    padding: 0;
+    padding: 0px;
 }
 /*! Source: https://github.com/h5bp/html5-boilerplate/blob/master/src/css/main.css */
 @media print {
@@ -2522,7 +2522,7 @@ input[type="checkbox"] {
     line-height: normal;
 }
 input[type="file"] {
-    display: block;
+    display: inline;
 }
 input[type="range"] {
     display: block;
