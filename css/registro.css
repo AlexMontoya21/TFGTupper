@@ -15,15 +15,16 @@ body {
 }
 .panel-login>.panel-heading a{
 	text-decoration: none;
-	color: #666;
+	color: #FC6344;
 	font-weight: bold;
 	font-size: 15px;
 	-webkit-transition: all 0.1s linear;
 	-moz-transition: all 0.1s linear;
 	transition: all 0.1s linear;
 }
-.panel-login>.panel-heading a.active{
-	color: #029f5b;
+.panel-login>.panel-heading a.active,
+.panel-login>.panel-heading a:hover{
+	color: #309FA1;
 	font-size: 18px;
 }
 .panel-login>.panel-heading hr{
@@ -51,10 +52,10 @@ body {
 	-webkit-box-shadow: none;
 	-moz-box-shadow: none;
 	box-shadow: none;
-	border-color: #ccc;
+	border-color: #309FA1;
 }
 .btn-login {
-	background-color: #59B2E0;
+	background-color:  #309FA1;
 	outline: none;
 	color: #fff;
 	font-size: 14px;
@@ -67,7 +68,7 @@ body {
 .btn-login:hover,
 .btn-login:focus {
 	color: #fff;
-	background-color: #53A3CD;
+	background-color: #4C1131;
 	border-color: #53A3CD;
 }
 .forgot-password {
@@ -81,7 +82,7 @@ body {
 }
 
 .btn-register {
-	background-color: #1CB94E;
+	background-color: #309FA1;
 	outline: none;
 	color: #fff;
 	font-size: 14px;
@@ -94,15 +95,33 @@ body {
 .btn-register:hover,
 .btn-register:focus {
 	color: #fff;
-	background-color: #1CA347;
+	background-color: #FC6344;
 	border-color: #1CA347;
 }
 .hidden{
   background:red;
   color:white;
+  min-height: 0px;
 }
 .show{
-  background-color:red;
+  background-color:#FC6344;
   color:white;
-   transition: max-height 5s ease-in-out;
+   font-weight:bold; 
+   border-radius:3px;
+}
+#mdni,#musuario,#mcontraseñá,#memail,#mtelefono{    
+        height: 0px;
+    overflow: hidden;
+    transition: all 600ms;
+    display: none;
+  //  text-align: left;
+  //  padding: 10px;
+    background-color: #309FA1;
+    color: white;
+    font-weight: bold;
+    border-radius: 5px;
+    text-align: center;
+     overflow:hidden;
+}
+#mdni .open{max-height:20px;
 }

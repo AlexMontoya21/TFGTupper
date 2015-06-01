@@ -27,7 +27,7 @@ function tupper($id, $usuario) {
         $tuppers[$key] = "";
         $tuppers[$key].='<div class="t">';
         $tuppers[$key].='<div class="contenido">';
-        $tuppers[$key].='<div class="foto" style="background-image:url(\'img/platos/' . $tupper[1] . '\')">';
+        $tuppers[$key].='<div class="foto" style="background-image:url(\'img/foto_tuppers/' . $tupper[1] . '\')">';
         $tuppers[$key].='</div>';
         $tuppers[$key].="<h3>$tupper[2] $de_usuario<span class='estado'>&nbsp;&nbsp;|&nbsp;&nbsp;$estado</span></h3>";
         $tuppers[$key].='<div class="gestion">';
@@ -48,7 +48,7 @@ function tupper($id, $usuario) {
 
         $tuppers[$key].='</div>';
         $tuppers[$key].='<div class="descripcion">';
-        $tuppers[$key].="<div>$tupper[3] $tupper[3] $tupper[3]<br><br>$tupper[3] $tupper[3]<br><br>$tupper[3] </div>";
+        $tuppers[$key].="<div>$tupper[3]</div>";
         $tuppers[$key].='</div>';
         $tuppers[$key].='<div class="ver"> <span>ver mas</span>';
         $tuppers[$key].='</div>';
@@ -215,15 +215,15 @@ function generar_tupper() {
             $t.= "$vegano$vegetariano$sin_gluten";
             $t.= '">';
             $t.='<div class="foto">';
-            $t.="<img src='img/platos/";
+            $t.="<img src='img/foto_tuppers/";
             $t.=$tuppers[2];
             $t.="'>";
             $t.='</div><div class="contenido">';
             $t.="<h2>$tuppers[1]</h2><span class='usuario'>de " . $usuario[0][0] . " " . $usuario[0][1] . "</span>";
             $t.='<div class="puntuacion"></div>';
-            $t.='<p>';
+            $t.='<div class="descripcion">';
             $t.=$tuppers[3];
-            $t.='</p>';
+            $t.='</div>';
             $t.='</div>';
             $t.=$vegano2 . " " . $vegetariano2 . " " . $sin_gluten2;
             $t.= '<input type="button" class="pedir" value="' . $pedido_value . '"' . $pedido . 'onclick="peticion(this)">';
