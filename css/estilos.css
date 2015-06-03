@@ -49,3 +49,10 @@ h1{
     opacity: 0.9;
 }
 
+.oculto { display: none; }
+.visible{ 
+    display: inline-block; 
+    position: relative;
+    top: 100px;
+    left: 80px; 
+}
