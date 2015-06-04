@@ -124,7 +124,7 @@
 
             });
 
-            $('div.contenido p').click(function () {
+            $('div.contenido .descripcion').click(function () {
                 var hola = $(this).parent().parent()[0].innerHTML;
                 $('.popup-content').addClass('mas_tupper');
                 $('.popup-content').append('<div class="info"></div>');
@@ -138,7 +138,6 @@
             var query = jQuery(location).attr('href');
 
             if (query.indexOf("iniciaSesion") > 0) {
-
                 $("#login-form").delay(100).fadeIn(100);
                 $("#register-form").fadeOut(100);
                 $('#register-form-link').removeClass('active');
@@ -146,7 +145,6 @@
 
             }
             else if (query.indexOf("hazteTupper") > 0) {
-
                 $("#register-form").delay(100).fadeIn(100);
                 $("#login-form").fadeOut(100);
                 $('#login-form-link').removeClass('active');

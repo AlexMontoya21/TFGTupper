@@ -219,12 +219,13 @@ html {
     float: left;
     margin-right: 10px;
     overflow: hidden;
+    border-radius: 50%;
 }
 
 .tupper h2 {
     margin: 0px;
     padding: 0px;
-    font-size: 22px;
+    font-size: 19px;
     color:#4C1131;
     font-family: 'Yanone Kaffeesatz', sans-serif;
     font-weight: bold;
@@ -255,6 +256,9 @@ html {
     font-size: 16px;
     font-weight: normal;
     color:inherit;
+}
+.tupper .descripcion h2,.tupper .descripcion h3,.tupper .descripcion h4, .tupper .descripcion h5,.tupper .descripcion span{
+        cursor: inherit;
 }
 
 
@@ -979,7 +983,7 @@ div.info  .gestion .sin_gluten,div.info .gestion .sin_gluten:hover{
 
 
 .popup_usuario{
-    padding-top: 60px;
+    padding-top: 20px;
     height: auto;
     overflow: hidden;
 }
@@ -1266,6 +1270,7 @@ div.exito{
 .tupper .foto img{
     width: 100%;
     height: auto;
+    /* border-radius: 50%; */
 }
 .tupper input[type=button]{
     float: right;
