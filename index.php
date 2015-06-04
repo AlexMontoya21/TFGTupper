@@ -1,8 +1,6 @@
 <?php
 
 require_once("constantes.php");
-require_once("contador.php");
-require_once("contadorVista.php");
 require_once("SQL.php");
 require_once("sql_user.php");
 include ("FormularioServidor.php");

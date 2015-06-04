@@ -269,3 +269,33 @@ function ordenar($array) {
     }
     return $ordenado;
 }
+
+function respuesta($resultados, $plantilla) {
+    $file = $plantilla;
+    $html = file_get_contents($file);
+    foreach ($resultados as $key1 => $valor1)
+        if (count($valor1) > 1) {
+            foreach ($valor1 as $key2 => $valor2) {
+                $cadena = "{" . $key1 . " " . $key2 . "}";
+                $html = str_replace($cadena, $valor2, $html);
+            }
+        } else {
+            $cadena = '{' . $key1 . '}';
+            $html = str_replace($cadena, $valor1, $html);
+        }
+    return $html;
+}
+
+function validateField($nombreCampo, $campospendientes, $camposerroneos) {
+    if (in_array($nombreCampo, $campospendientes)) {
+        return ' class="error1"';
+    } elseif (in_array($nombreCampo, $camposerroneos)) {
+        return ' class="error2"';
+    }
+}
+
+function setValue($nombreCampo) {
+    if (isset($_POST[$nombreCampo])) {
+        return $_POST[$nombreCampo];
+    }
+}
