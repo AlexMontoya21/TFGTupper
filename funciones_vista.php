@@ -6,7 +6,7 @@ function tupper($id, $usuario) {
     $valores_campos = array($id => $usuario);
     $campos = array('id_tupper', 'foto', 'nombre', 'descripcion', 'tipo', 'vegano', 'vegetariano', 'sin_gluten', 'id_solicitante', 'solicitado', 'id_usuario');
     $resultado = load('TUPPERWARING.TUPPER');
-    $resultado=  ordenar($resultado);
+    $resultado = ordenar(array_reverse($resultado));
     $tuppers = array();
     foreach ($resultado as $key => $tupper) {
         if ($tupper[9] == 1) {
@@ -22,6 +22,17 @@ function tupper($id, $usuario) {
             $usuario = load('TUPPERWARING.USUARIOS');
             $de_usuario = "<span class='de_usuario'> <a href='javascript:void(0)' onclick='info(\"id_usuario\", " . $tupper[10] . ")'>de " . $usuario[0][0] . " " . $usuario[0][1] . "</a></span>";
         } else {
+            if ($tupper[8] != null || $tupper[9] == 1) {
+                $valores_campos = array('id' => $tupper[8]);
+                $campos = array('nombre', 'apellidos');
+                $usuario = load('TUPPERWARING.USUARIOS');
+                $nombre_usuario = '<a href="javascript:void(0)" onclick="info(\'id_usuario\', ' . $tupper[8] . ')">' . $usuario[0][0] . ' ' . $usuario[0][1] . '</a>';
+            }
+            if ($tupper[9] == 1) {
+                $estado = '<span style="color: #019101;">Aceptado para ' . $nombre_usuario . ' <span class="glyphicon glyphicon-ok"></span></span>';
+            } else if ($tupper[8] != null) {
+                $estado = '<span style="color: #DFB42C">Pedido por ' . $nombre_usuario . ' <span class="glyphicon glyphicon-time"></span></span>';
+            }
             $de_usuario = "";
         }
         $tuppers[$key] = "";
@@ -31,8 +42,6 @@ function tupper($id, $usuario) {
         $tuppers[$key].='</div>';
         $tuppers[$key].="<h3>$tupper[2] $de_usuario<span class='estado'>&nbsp;&nbsp;|&nbsp;&nbsp;$estado</span></h3>";
         $tuppers[$key].='<div class="gestion">';
-
-
         if ($tupper[5] == 1 or $tupper[6] == 1 or $tupper[7] == 1) {
 
             if ($tupper[5] == 1) {
@@ -47,6 +56,8 @@ function tupper($id, $usuario) {
         }
 
         $tuppers[$key].='</div>';
+        $tuppers[$key].='<input type="hidden" value="'.$tupper[4].'" id="tipo">';
+        $tuppers[$key].='<input type="hidden" value="'.$tupper[0].'" id="id_tupper">';
         $tuppers[$key].='<div class="descripcion">';
         $tuppers[$key].="<div>$tupper[3]</div>";
         $tuppers[$key].='</div>';
@@ -57,7 +68,7 @@ function tupper($id, $usuario) {
         $tuppers[$key].='<div class="botones">';
         if ($id == 'id_usuario') {
             $tuppers[$key].='<input type="button" class="notifi naranja" value="eliminar" onclick="gestion(this,' . $tupper[0] . ',0)">';
-            $tuppers[$key].='<input type="button" class="notifi" value="editar" disabled>';
+            $tuppers[$key].='<input type="button" class="notifi ed_tupper" value="editar">';
         } else if ($tupper[9] != 1) {
             $tuppers[$key].='<input type="button" class="notifi" value="cancelar peticion" onclick="gestion(this,' . $tupper[0] . ',0)"><br>';
         }
@@ -72,7 +83,9 @@ function notificaciones($usuario) {
     global $valores_campos, $campos;
     $valores_campos = array('id_r' => $usuario);
     $campos = array('mensaje', 'hora', 'id_tupper', 'id_mensaje', 'id_e', 'fecha');
+    $notificaciones_array=array();
     $notificaciones_array = load('TUPPERWARING.MENSAJES');
+    $notificaciones_array=array_reverse($notificaciones_array);
     $notificaciones = array();
 
     foreach ($notificaciones_array as $key => $n_a) {
@@ -99,6 +112,7 @@ function zona_usuario() {
 //generar notificaciones y contador
 
     $notificaciones_array = notificaciones($usuario);
+    
     $notificaciones = "";
     $c_n = 0;
     foreach ($notificaciones_array as $n) {
@@ -106,10 +120,11 @@ function zona_usuario() {
         $notificaciones.=$n;
     }
     if ($c_n == 0) {
-        $notificaciones = "<p>Â¡No tienes Notificaciones!, de momento...</p>";
+        $notificaciones = "<p>¡No tienes Notificaciones! de momento...</p>";
     }
 //generar mis tuppers y contador
     $mis_tuppers_array = tupper('id_usuario', $usuario);
+    
     $mis_tuppers = "";
     $c_mt = 0;
     foreach ($mis_tuppers_array as $mt_a) {
@@ -117,10 +132,11 @@ function zona_usuario() {
         $c_mt++;
     }
     if ($c_mt == 0) {
-        $mis_tuppers = "<p>Â¡No tienes Tuppers!, de momento...</p>";
+        $mis_tuppers = "<p>¡No tienes Tuppers! de momento...</p>";
     }
 //generar tuppers adquiridos y contador
     $tuppers_adquiridos_array = tupper('id_solicitante', $usuario);
+    
     $tuppers_adquiridos = "";
     $c_ta = 0;
     foreach ($tuppers_adquiridos_array as $ta_a) {
@@ -128,7 +144,7 @@ function zona_usuario() {
         $c_ta++;
     }
     if ($c_ta == 0) {
-        $tuppers_adquiridos = "<p>Â¡No has pedido Tuppers!, de momento...</p>";
+        $tuppers_adquiridos = "<p>¡No has pedido Tuppers! de momento...</p>";
     }
 
 //relleno de la plantilla
@@ -148,7 +164,7 @@ function zona_usuario() {
         "c_ta" => $c_ta,
     );
     $html = respuesta($datos, $contenido);
-     return $html;
+    return $html;
 }
 
 //PARA GENERAR LOS TUPPERS EN LA SECCION DE COGER TUPPERS/////////////////////////
@@ -193,6 +209,7 @@ function generar_tupper() {
 
     $campos = array('id_tupper', 'nombre', 'foto', 'descripcion', 'tipo', 'vegano', 'vegetariano', 'sin_gluten', 'id_solicitante', 'id_usuario', 'solicitado');
     $sql = load('TUPPERWARING.TUPPER');
+    $sql = array_reverse($sql);
     $t = "<div class='titulo'><h1>$plato</h1></div>";
     $t.="<div class='selects'>  <span class='vegano'><span class='glyphicon glyphicon-leaf'></span> Vegano</span> <input type='checkbox' id='checkbox-8-2' name='vegano'/><label for='checkbox-8-2'></label> <span class='vegetariano'><span class='glyphicon glyphicon-leaf'></span> Vegetariano</span> <input type='checkbox' id='checkbox-8-3' name='vegetariano'/><label for='checkbox-8-3'></label> <span class='sin_gluten'><span class='glyphicon glyphicon-glyphicon glyphicon-grain'></span> Sin Gluten</span> <input type='checkbox' id='checkbox-8-4' name='vegano'/><label for='checkbox-8-4'></label></div>";
     $t.="<div class='resultado'>";
@@ -260,7 +277,7 @@ function ordenar($array) {
     $ordenado = array();
     foreach ($orden as $key => $o) {
         foreach ($array as $linea_datos) {
-                $condiciones = array($linea_datos[9] == 1, ($linea_datos[8] != null && $linea_datos[9] == 0), ($linea_datos[8] == null && $linea_datos[9] == 0));
+            $condiciones = array($linea_datos[9] == 1, ($linea_datos[8] != null && $linea_datos[9] == 0), ($linea_datos[8] == null && $linea_datos[9] == 0));
             if ($condiciones[$key]) {
                 $ordenado[$cont] = $linea_datos;
                 $cont++;
@@ -273,6 +290,21 @@ function ordenar($array) {
 function respuesta($resultados, $plantilla) {
     $file = $plantilla;
     $html = file_get_contents($file);
+    foreach ($resultados as $key1 => $valor1)
+        if (count($valor1) > 1) {
+            foreach ($valor1 as $key2 => $valor2) {
+                $cadena = "{" . $key1 . " " . $key2 . "}";
+                $html = str_replace($cadena, $valor2, $html);
+            }
+        } else {
+            $cadena = '{' . $key1 . '}';
+            $html = str_replace($cadena, $valor1, $html);
+        }
+    return $html;
+}
+
+function respuesta2($resultados, $plantilla) {
+    $html = $plantilla;
     foreach ($resultados as $key1 => $valor1)
         if (count($valor1) > 1) {
             foreach ($valor1 as $key2 => $valor2) {

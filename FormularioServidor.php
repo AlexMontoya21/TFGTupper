@@ -114,6 +114,8 @@ function displayFormulario($campospendientes, $camposerroneos, $duplicado, $loge
     $error_fallo = "";
     $error_log = "";
     $error_contrasena = "";
+    $activo_login='';
+    $activo_register='';
     if ($campospendientes) {
         $error_pendiente = '<p class="error2">Hubo algunos problemas con el formulario que usted <br>
                             presentÃ³. Por favor, rellene los campos con (*), ya que son obligatorios</p>';
@@ -125,12 +127,19 @@ function displayFormulario($campospendientes, $camposerroneos, $duplicado, $loge
         $error_fallo = '<p class="show">El nombre de usuario ya esta cogido.</p>';
     }
     if ($logeo) {
-
         $error_log = '<p class="show">El usuario no existe.</p>';
     }
     if ($contrasena) {
         
         $error_contrasena = '<p class="show"> La contrasena es incorrecta </p>';
+    }
+    if($contrasena || $logeo){
+//        $activo_login='class="active"';
+//        $activo_register='';
+    }
+    else if($campospendientes || $camposerroneos || $duplicado == true){
+//        $activo_login='';
+//        $activo_register='class="active"';
     }
 
 
@@ -143,6 +152,9 @@ function displayFormulario($campospendientes, $camposerroneos, $duplicado, $loge
         "validarEmail" => validateField("email", $campospendientes, $camposerroneos),
         "validarTelefono" => validateField("telefono", $campospendientes, $camposerroneos),
         "validarDni" => validateField("dni", $campospendientes, $camposerroneos),
+        "activo_login"=>$activo_login,
+        "activo_register"=>$activo_register
+        
     );
 
     $plantilla = "plantillas/usuarios.html";
@@ -208,8 +220,5 @@ function CrearSesion() {
     // CONTROLADOR LOGIN.
     $id = loadUser($campos, $valores_campos, TABLA2); // CONSULTA QUE HACE SELECT password from tabla where nombre=$user;
     $_SESSION["id"] = $id[0];
-    header('Location: index.php?perfil');
-    if (!isset($_SESSION['username'])) {
-        header('Location: index.php?hazteTupper');
-    }
+    header('Location: index.php?hazteTupper');
 }

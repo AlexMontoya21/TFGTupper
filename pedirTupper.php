@@ -41,3 +41,5 @@ if ($disponible[0][0] == NULL && $datos['usuario'] != $datos_tupper[0][1]) {
         guardar($valores_campos, 'TUPPERWARING.MENSAJES');
     }
 }
+
+

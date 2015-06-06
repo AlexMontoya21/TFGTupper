@@ -87,7 +87,6 @@
             $('.elemento').hover(function () {
                 var i = platos.indexOf($(this).attr('class').split(' ')[1]);
                 if (actual !== grados[i] && actual !== grados2[i]) {
-                    console.log('entra');
                     r1 = grados[i] - actual;
                     r2 = grados2[i] - actual;
                     var resultado = (Math.abs(r1) < Math.abs(r2)) ? grados[i] : grados2[i];
@@ -126,7 +125,7 @@
 
             });
 
-            $('div.contenido .descripcion').click(function () {
+            $('div.resultado div.contenido .descripcion').click(function () {
                 var hola = $(this).parent().parent()[0].innerHTML;
                 $('.popup-content').addClass('mas_tupper');
                 $('.popup-content').append('<div class="info"></div>');

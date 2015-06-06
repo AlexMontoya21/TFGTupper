@@ -185,6 +185,7 @@ html {
 }
 .selects input[type=checkbox]{
     margin-left: 15px;
+    display: none;
 }
 .titulo h1{
     position: absolute;
@@ -243,14 +244,14 @@ html {
 }
 
 .tupper .descripcion {
-  font-size: 12px;
-  height: 49px;
-  overflow: hidden;
-  border-bottom: solid 1px #5e5e5e;
-  position: relative;
-  color: #5e5e5e;
-  cursor: pointer;
-  margin-bottom: 7px;
+    font-size: 12px;
+    height: 49px;
+    overflow: hidden;
+    border-bottom: solid 1px #5e5e5e;
+    position: relative;
+    color: #5e5e5e;
+    cursor: pointer;
+    margin-bottom: 7px;
 }
 .tupper .descripcion h2{
     font-size: 16px;
@@ -258,7 +259,7 @@ html {
     color:inherit;
 }
 .tupper .descripcion h2,.tupper .descripcion h3,.tupper .descripcion h4, .tupper .descripcion h5,.tupper .descripcion span{
-        cursor: inherit;
+    cursor: inherit;
 }
 
 
@@ -377,9 +378,9 @@ input[type="checkbox"] {
 }
 
 .popup-content .descripcion a {
-      font-size: 13px;
-      font-weight: bold;
-      text-decoration: underline;
+    font-size: 13px;
+    font-weight: bold;
+    text-decoration: underline;
 }
 
 .popup-content .contenido {
@@ -613,7 +614,7 @@ h3 {
     text-align: left;
     color: #2D9DA0;
     font-family: 'Yanone Kaffeesatz', sans-serif;
-    cursor: pointer;
+    cursor: default;
 }
 
 #zona_usuario h2 span {
@@ -642,9 +643,10 @@ h3 {
 }
 #zona_usuario .bloque{
     text-align: left;
+    margin-bottom: 20px;
 }
 #zona_usuario .notificacion{
-    border-bottom: solid 1px #BBB;
+    /* border-bottom: solid 1px #BBB; */
     padding:10px 0px;
     cursor: default;
 }
@@ -669,7 +671,7 @@ h3 {
 }
 
 #notificaciones_c,#tuppers_adquiridos_c,#mis_tuppers_c{
-    height: 0px;
+    height: auto;
     transition: height 600ms;
     -webkit-transition: height 600ms;
     overflow: hidden;
@@ -728,7 +730,7 @@ h3 {
 #zona_usuario  .t .descripcion {
     margin-left: 90px;
     margin-right: 10px;
-    height: 0px;
+    height: 20px;
     overflow: hidden;
     text-align: left;
     font-size: 13px;
@@ -820,8 +822,8 @@ h3 {
 #zona_usuario  .contenido_info_usuario div.info_usuario p{
     margin: 0;
 }
-#zona_usuario  .contenido_info_usuario  .editar{
-    margin-left: 9px;
+#zona_usuario .contenido_info_usuario  .editar{
+    margin-right: 9px;
     width: 0px;
     margin-top: 17px;
     overflow: hidden;
@@ -837,10 +839,30 @@ h3 {
     text-transform: capitalize;
     font-size: 12px;
 }
-#zona_usuario  .contenido_info_usuario  .editar:hover{
+#zona_usuario .contenido_info_usuario  .editar:hover{
     color:white;
     background-color: #2D9DA0;  
 }
+#zona_usuario .contenido_info_usuario.ampliado .editar.selected,#zona_usuario .contenido_info_usuario.ampliado .editar.selected:hover{
+    color:white;
+    background-color: #2D9DA0;  
+    cursor: default;
+}
+
+
+/*******contenido_info_usuario ampliado****************************************/
+
+#zona_usuario .contenido_info_usuario.ampliado{margin-top:50px;}
+#zona_usuario .contenido_info_usuario.ampliado div.info_usuario{height:150px;margin-top:0px;margin-left: 45px;}
+#zona_usuario .contenido_info_usuario.ampliado div.info_usuario h1{font-size:40px;}
+#zona_usuario .contenido_info_usuario.ampliado div.info_usuario h3{font-size:17px;}
+#zona_usuario .contenido_info_usuario.ampliado div.foto_usuario{transform:scale(1);margin-top:0px;}
+#zona_usuario .contenido_info_usuario.ampliado div.gorro{height:50px;top:-60px;}
+#zona_usuario .contenido_info_usuario.ampliado .editar{width:90px;border:solid 2px #2D9DA0;}
+
+/******************************************************************************/
+
+
 
 #zona_usuario .contenido {
     float: left;
@@ -852,13 +874,21 @@ h3 {
     height: 0px;
     overflow: hidden;
     transition: all 600ms;
-    display: none;
     text-align: left;
-    padding: 10px;
+    padding: 0px 10px;
     background-color: #ECECEC;
     border-radius: 5px;
     margin-top: 31px;
 }
+
+
+/*******formulario subir tupper/ editar perfil ampliado************************/
+
+#zona_usuario .formulario.ampliado{padding: 10px;min-height: 400px;transition: all 600ms;}
+
+/******************************************************************************/
+
+
 
 #zona_usuario .gestion .vegano,.gestion .vegetariano,.gestion .sin_gluten{
     display: inline;
@@ -924,8 +954,8 @@ div.info .descripcion {
 }
 
 div.info .descripcion h2{
-        font-size: 22px;
-        color: inherit;
+    font-size: 22px;
+    color: inherit;
 }
 
 div.info .foto {
@@ -1374,4 +1404,35 @@ input[type=button].notifi.naranja:hover{background-color: #FC6344;  color:white;
 }
 .formulario #descripcion_tupper button{
     padding: 2px 5px;
+}
+
+#mis_tuppers_c .contenido span.estado a{
+    color: inherit;
+    font-size: 13px;
+    text-decoration: underline;
+}
+.advertencia, .mensaje{    font-weight: bold;      font-size: 16px;  color: #DB4418; overflow: hidden; transition: all 1s}
+.mensaje{ font-weight: normal;color: #4EA53B; overflow: hidden; transition: all 600ms; height: 4px;text-align: center;}
+
+
+form#ed_tupper input[type=text]{
+    width:400px;    
+}
+form#ed_tupper h3{
+    display: inline;
+    margin-right: 9px !important;
+}
+form#ed_tupper .gestion{
+    margin-top: 9px;
+}
+form#ed_tupper select{
+    width: 130px;
+    margin-right: 10px;
+}
+form#ed_tupper input[type=checkbox]{
+    margin-left: 10px;
+}
+form#ed_tupper textarea{
+    width:100%;
+    height: 100px;
 }

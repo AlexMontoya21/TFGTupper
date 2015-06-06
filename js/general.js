@@ -209,3 +209,50 @@ function notificaciones() {
     peticion_http.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     peticion_http.send(parametros_json);
 }
+
+function subir_tupper1() {
+    var advertencia = "Hay algunas cosas que tienes que revisar...";
+    var nombre = $('input#nombre_tupper')[0].value;
+    var foto = $('input#foto_tupper')[0].value;
+    var tipo = $('select#tipo_tupper')[0].value;
+    var extension = foto.substr(foto.lastIndexOf('.'));
+    if (nombre != '' && (nombre.length <= 30) && foto != '' && tipo != 'tipo' && (extension == '.jpg' || extension == '.jpeg' || extension == '.png')) {
+        return true;
+    }
+    else {
+        if (nombre == '') {
+            advertencia += "<br>-El nombre no puede estar vacio";
+        }
+        if (nombre.length > 30) {
+            advertencia += "<br>-El nombre no puede tener mas de 30 caracteres";
+        }
+        if (foto == '') {
+            advertencia += "<br>-Tienes que subir una foto";
+        }
+        if (extension != '.jpg' && extension != '.jpeg' && extension != '.png') {
+            advertencia += "<br>-La foto tiene que tener una extension .jpg, .jpeg o .png";
+        }
+        if (tipo == 'tipo') {
+            advertencia += "<br>-Tienes que seleccionar que tipo de plato es";
+        }
+        $('.advertencia').empty();
+        $('.advertencia').html(advertencia);
+        return false;
+    }
+}
+
+$('document').ready(function () {
+    if ($('.mensaje')[0].innerHTML != '') {
+        $('.mensaje').css('height','45px');
+        setTimeout(function () {
+        $('.mensaje').css('height','0px');
+        }, 5000);
+        
+        setTimeout(function () {
+            location.href = 'index.php?hazteTupper';
+        }, 6000);
+    }
+
+});
+
+        

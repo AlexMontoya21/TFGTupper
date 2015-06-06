@@ -1,6 +1,6 @@
 <script type="text/javascript" src="js/ValidacionFormulario.js"></script>
 <script src="../js/jquery-2.1.4.min.js" type="text/javascript"></script>
-
+<script type="text/javascript" src="js/registro.js"></script>
 <script>
 
     $(document).ready(function () {
@@ -13,14 +13,31 @@
         });
 
     });
+    $(function () {    
+    $('#login-form-link').click(function (e) {
+        $("#login-form").delay(100).fadeIn(100);
+        $("#register-form").fadeOut(100);
+        $('#register-form-link').removeClass('active');
+        $(this).addClass('active');
+        e.preventDefault();
+    });
+    
+    $('#register-form-link').click(function (e) {
+        $("#register-form").delay(100).fadeIn(100);
+        $("#login-form").fadeOut(100);
+        $('#login-form-link').removeClass('active');
+        $(this).addClass('active');
+        e.preventDefault();
+    });
+
+});
+
 </script>
 <!--main-->
 <div class="row border panel-body">
 
-
-    <!--última entrada de tupper -->
+    última entrada de tupper 
     <div class="col-xs-12 col-sm-12 col-md-6">
-
         <div id="contenedor">
 
             <p class="oli">{error_pendiente}</p>
@@ -43,10 +60,10 @@
                             <div class="panel-heading">
                                 <div class="row">
                                     <div class="col-xs-6">
-                                        <a href="#" class="active" id="login-form-link">Login</a>
+                                        <a href="#" id="login-form-link">Login</a>
                                     </div>
                                     <div class="col-xs-6">
-                                        <a href="#" id="register-form-link">Register</a>
+                                        <a href="#" id="register-form-link" class="active">Register</a>
                                     </div>
                                 </div>
                                 <hr>

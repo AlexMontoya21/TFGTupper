@@ -1,9 +1,8 @@
 <?php
-
+session_start();
 require_once("constantes.php");
 require_once("funciones_vista.php");
 require_once("SQL.php");
-session_start();
 $funcion = "";
 $colWhere = array();
 $colSelect = array();
@@ -36,5 +35,6 @@ if (isset($_FILES["imagen_tupper"]) and ($_FILES["imagen_tupper"]["error"] == UP
 if ($nombre != "" && isset($_SESSION["id"])) {
     $valores_campos = array('nombre' => $nombre, 'id_usuario' => $_SESSION["id"], 'tipo' => $tipo, 'foto' => $foto, 'vegano' => $vegano, 'vegetariano' => $vegetariano, 'sin_gluten' => $sin_gluten, "descripcion" => $descripcion, "solicitado" => 0);
     $resultado = guardar($valores_campos, 'TUPPERWARING.TUPPER');
+    
 }
-header('Location: index.php?hazteTupper');
+header("Location: index.php?tupperSubido");
