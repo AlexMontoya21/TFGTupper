@@ -22,7 +22,6 @@ $vegetariano = (isset($_POST['vegetariano_tupper'])) ? 1 : 0;
 $sin_gluten = (isset($_POST['sin_gluten_tupper'])) ? 1 : 0;
 $descripcion = (isset($_POST['descripcion_tupper']) && $_POST['descripcion_tupper'] != "") ? $_POST['descripcion_tupper'] : "No hay descripcion";
 $descripcion = preg_replace("/style=[A-Za-z0-9'#.:\-,_ ;\"]*/", "", $descripcion);
-$descripcion = preg_replace("/<img[A-Za-z0-9'#=%.:!\/\-,_ ;\"]*/", " ", $descripcion);
 $foto='sin_foto.jpg';
 
 if (isset($_FILES["imagen_tupper"]) and ($_FILES["imagen_tupper"]["error"] == UPLOAD_ERR_OK)) {

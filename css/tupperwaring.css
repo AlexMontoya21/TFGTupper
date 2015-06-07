@@ -1318,7 +1318,7 @@ div.exito{
 .tupper input[type=button]:hover{
     background-color: #842a58;
 }
-input[type=button].notifi{
+input[type=button].notifi, input[type=submit] {
     float: right;
     cursor: pointer;
     border-radius: 6px;
@@ -1327,7 +1327,7 @@ input[type=button].notifi{
     padding: 2px 0px;
     margin: -5px 5px;
     text-transform: capitalize;
-    background-color: white;
+    background-color: rgba(0,0,0,0);
     border: solid 2px #2D9DA0;
     color: #2D9DA0;
     font-size: 12px;
@@ -1340,7 +1340,7 @@ input[type=button].notifi:disabled, input[type=button].notifi:disabled:hover{
     cursor: default;
 
 }
-input[type=button].notifi:hover{background-color: #2D9DA0;  color:white;  }
+input[type=button].notifi:hover, input[type=submit]:hover{background-color: #2D9DA0;  color:white;  }
 input[type=button].notifi.naranja{border:solid 2px #FC6344; color:#FC6344;}
 input[type=button].notifi.naranja:hover{background-color: #FC6344;  color:white;}
 
@@ -1417,10 +1417,16 @@ input[type=button].notifi.naranja:hover{background-color: #FC6344;  color:white;
 
 form#ed_tupper input[type=text]{
     width:400px;    
+    height: 25px;
+    padding: 0 5px;
+    font-size: 20px;
 }
 form#ed_tupper h3{
     display: inline;
     margin-right: 9px !important;
+    line-height: 12px;
+    margin-top: 0 !important;
+    padding-top: 0 !important;
 }
 form#ed_tupper .gestion{
     margin-top: 9px;
@@ -1428,6 +1434,8 @@ form#ed_tupper .gestion{
 form#ed_tupper select{
     width: 130px;
     margin-right: 10px;
+    text-align: center;
+    font-size: 12px;
 }
 form#ed_tupper input[type=checkbox]{
     margin-left: 10px;

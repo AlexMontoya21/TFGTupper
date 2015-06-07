@@ -57,7 +57,7 @@ function tupper($id, $usuario) {
 
         $tuppers[$key].='</div>';
         $tuppers[$key].='<input type="hidden" value="'.$tupper[4].'" id="tipo">';
-        $tuppers[$key].='<input type="hidden" value="'.$tupper[0].'" id="id_tupper">';
+        $tuppers[$key].='<input type="hidden" value="'.$tupper[0].'" id="id_tupper" name="id_tupper">';
         $tuppers[$key].='<div class="descripcion">';
         $tuppers[$key].="<div>$tupper[3]</div>";
         $tuppers[$key].='</div>';
@@ -65,10 +65,12 @@ function tupper($id, $usuario) {
         $tuppers[$key].='</div>';
         $tuppers[$key].='</div>';
 
-        $tuppers[$key].='<div class="botones">';
+        $tuppers[$key].='<div class="botones eliminar_editar">';
         if ($id == 'id_usuario') {
             $tuppers[$key].='<input type="button" class="notifi naranja" value="eliminar" onclick="gestion(this,' . $tupper[0] . ',0)">';
-            $tuppers[$key].='<input type="button" class="notifi ed_tupper" value="editar">';
+             if ($tupper[9] ==0 && $tupper[8] == null) {
+            $tuppers[$key].='<input type="button" class="notifi ed_tupper" value="editar" onclick="editar_tupper(this)">';
+             }
         } else if ($tupper[9] != 1) {
             $tuppers[$key].='<input type="button" class="notifi" value="cancelar peticion" onclick="gestion(this,' . $tupper[0] . ',0)"><br>';
         }

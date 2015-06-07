@@ -129,12 +129,12 @@
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 bloque ">
             <h2 id="tuppers_adquiridos"><span class="glyphicon glyphicon-heart"></span> Tuppers Pedidos <span class="c_ta">{c_ta}</span></h2>
             <div id="tuppers_adquiridos_c">{tuppers_adquiridos}</div></div>
-        </div>
-        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 bloque">
-            <h2 id="mis_tuppers"><span class="glyphicon glyphicon-folder-close"></span> Mis Tuppers <span class="c_mt">{c_mt}</span></h2>
-            <div id="mis_tuppers_c">{mis_tuppers}</div>
-        </div>
     </div>
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 bloque">
+        <h2 id="mis_tuppers"><span class="glyphicon glyphicon-folder-close"></span> Mis Tuppers <span class="c_mt">{c_mt}</span></h2>
+        <div id="mis_tuppers_c">{mis_tuppers}</div>
+    </div>
+</div>
 
 <script type="text/javascript">
     $('.ver span').click(function () {
@@ -189,44 +189,72 @@
         }
 
     });
+    var antiguo_contenido = new Array();
+    function editar_tupper(boton) {
+        var contenido = boton.parentNode.parentNode.children[0];
+        var id_tupper = contenido.children[4].value;
+        antiguo_contenido[id_tupper] = (contenido.outerHTML);
+        var titulo = (contenido.children[1].innerHTML).substr(0, contenido.children[1].innerHTML.indexOf('<span'));
+        contenido.children[1].innerHTML = '<input type="text" value="' + titulo + '" id="nombre" name="nombre">';
+        contenido.children[1].outerHTML += '<input type="file" id="foto" name="foto">';
 
-    $('input.notifi.ed_tupper').click(function () {
-        var contenido = $(this).parent().prev();
-        var titulo = (contenido.children('h3')[0].innerHTML).substr(0, contenido.children('h3')[0].innerHTML.indexOf('<span'));
-        contenido.children('h3').empty();
-        contenido.children('h3').html('<input type="text" value="' + titulo + '" id="nombre" name="nombre">');
-        contenido.children('h3').after('<input type="file" id="foto" name="foto">');
-        var descripcion = (contenido.children('.descripcion')[0].innerHTML);
-        contenido.children('.descripcion').css('height','auto');
-        contenido.children('.descripcion').empty();
-        contenido.children('.descripcion').html('<textarea>'+descripcion+'</textarea>');
-        var checkboxs=' <input type="checkbox" name="vegano_tupper">Vegano <input type="checkbox" name="vegetariano_tupper">Vegetariano<input type="checkbox" name="sin_gluten_tupper">Sin Gluten';
-  
-        for(var i=0; i<contenido.children('.gestion').children().length;i++){
-        var reemplazo=contenido.children('.gestion').children()[i].className+'_tupper"';
-        checkboxs=checkboxs.replace(reemplazo, reemplazo+'" checked');
-        }        
-        contenido.children('.ver').css('display','none');
-        contenido.children('.gestion').empty();        
-        var select='<select id="tipo_tupper" name="tipo_tupper"><option>carne</option><option>pescado</option><option>arroz</option><option>verduras</option><option>entrantes</option><option>pucheros</option><option>postres</option><option>pasta</option></select>';
-        select=select.replace(">"+(contenido.children('#tipo')[0].value), " selected>"+(contenido.children('#tipo')[0].value));
-        contenido.children('.gestion').html(select+checkboxs);
-        contenido.next().empty();
-        var aceptar="<input type='submit' class='notifi' value='Aceptar'>";
-        var cancelar="<input type='button' class='notifi naranja' value='Cancelar' onclick='location.reload()'>";
-        contenido.next().html(aceptar+cancelar);
-        contenido.parent().wrap('<form id="ed_tupper"  method="post" enctype="multipart/form-data" action="editarTupper.php"></form>');
-        
-        tinymce.init({
-        selector: "textarea",
-        theme: "modern",
-        plugins: [
-            "wordcount", "hr",
-        ],
-        toolbar1: "undo redo | formatselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | hr",
-    });
-    $('#mceu_49').css('display','none');
-    })
+        var descripcion = (contenido.children[6].innerHTML);
+        contenido.children[6].style.height = "auto";
+        contenido.children[6].innerHTML = '<textarea name="descripcion">' + descripcion + '</textarea>';
+        var checkboxs = ' <input type="checkbox" name="vegano_tupper">Vegano <input type="checkbox" name="vegetariano_tupper">Vegetariano<input type="checkbox" name="sin_gluten_tupper">Sin Gluten';
+
+        for (var i = 0; i < contenido.children[3].childNodes.length; i++) {
+            if (contenido.children[3].childNodes[i].nodeType != 3) {
+                var reemplazo = contenido.children[3].childNodes[i].className + '_tupper"';
+                checkboxs = checkboxs.replace(reemplazo, reemplazo + ' checked');
+            }
+        }
+        contenido.children[7].style.display = "none";
+        var select = '<select id="tipo_tupper" name="tipo_tupper"><option>carne</option><option>pescado</option><option>arroz</option><option>verduras</option><option>entrantes</option><option>pucheros</option><option>postres</option><option>pasta</option></select>';
+        select = select.replace(">" + (contenido.children[4].value), " selected>" + (contenido.children[4].value));
+        contenido.children[3].innerHTML = select + checkboxs;
+        contenido.nextSibling.style.display = 'none';
+        var aceptar = "<input type='submit' class='notifi' value='Aceptar'>";
+        var cancelar = "<input type='button' class='notifi naranja' value='Cancelar' onclick='cancelar_ed_tupper(this, " + id_tupper + ")'>";
+        contenido.nextSibling.outerHTML = contenido.nextSibling.outerHTML + '<div class="botones aceptar_cancelar">' + aceptar + cancelar + '</div>';
+        contenido.parentNode.innerHTML = '<form id="ed_tupper" method="post" enctype="multipart/form-data" action="editarTupper.php">' + contenido.parentNode.innerHTML + '</form>';
+        setTimeout(function () {
+            tinymce.init({
+                selector: "textarea",
+                theme: "modern",
+                plugins: [
+                    "wordcount", "hr",
+                ],
+                toolbar1: "undo redo | formatselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | hr",
+            });
+        }, 5);
+
+    }
+
+
+    function cancelar_ed_tupper(boton, id_tupper) {
+        var contenedor = boton.parentNode.parentNode.children[0];
+        contenedor.outerHTML = antiguo_contenido[id_tupper];
+        boton.parentNode.parentNode.children[1].style.display = 'block';
+        boton.parentNode.remove();
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
