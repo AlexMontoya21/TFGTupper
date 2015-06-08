@@ -13,7 +13,7 @@
 //        actual = resultado;
 //    }
 //});
-
+ 
 
 var peticion_http;
 function peticion(tupper) {

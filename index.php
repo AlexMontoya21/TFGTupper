@@ -20,7 +20,8 @@ $campos = array('id_tupper', 'nombre', 'foto', 'descripcion', 'tipo', 'vegano', 
 $valores_campos;
 $mensajeAbrirConexion = "";
 session_start();
-$boton = '<a href="index.php?iniciaSesion"> <input type="button" class="btn-default" id="login" value="Inicia sesion" style="line-height: 200%;""> </a>';
+$boton = '<a href="index.php?iniciaSesion"> <input type="button"  id="login" value="Inicia sesion" style="line-height: 200%;  margin-top: 51px;
+    color: #FC6344; "> </a>';
 $haztetupper_perfil = '#haztetupper';
 $titulo = "Inicio";
 $plantilla = "plantillas/plantilla.html";

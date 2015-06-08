@@ -7,10 +7,20 @@ and open the template in the editor.
     Created on : 21-abr-2015, 17:42:33
     Author     : Julia
 */
-h1{  
-    font-size: 100px;
-    margin: 0px;
+bot{
+    line-height: 200%;
+    margin-top: 51px;
+    color: #FC6344;
 }
+.panel-body {
+    padding: 0px; 
+}
+h1{  
+    font-size: 90px;
+    margin: 0px;
+    line-height: 130px;
+}
+
 .border{
     border: 1px solid black; 
 }
@@ -30,10 +40,10 @@ h1{
     margin-top: -15px;
 }
 .morado_logo{color: #4c1131;font-family: 'Yanone Kaffeesatz', sans-serif; }
-.azul_logo{background-color: #c7f0e5; }
-.azul_logo2{color: #247d84; }
-.naranja_logo{color: #FC6344; font-weight: bold;}
-.yellow{color: yellow; font-size: 40px;}
+.azul_logo{background-color: #c7f0e5;font-family: 'Yanone Kaffeesatz', sans-serif;  }
+.azul_logo2{color: #247d84; font-family: 'Yanone Kaffeesatz', sans-serif; }
+.naranja_logo{color: #FC6344; font-weight: bold;font-family: 'Yanone Kaffeesatz', sans-serif; }
+.yellow{color: yellow; font-size: 40px;font-family: 'Yanone Kaffeesatz', sans-serif; }
 
 .border_main{
     border: 1px solid #247d84;
@@ -48,7 +58,11 @@ h1{
     background-color: #f1f1f1;
     opacity: 0.9;
 }
-
+.border_redondo {
+    border-radius: 15px;
+    border: 1px solid #4c1131;   
+    box-shadow: 0px #247d84;
+}
 .oculto { display: none; }
 .visible{ 
     display: inline-block; 
