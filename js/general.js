@@ -237,7 +237,7 @@ function subir_tupper1() {
     var foto = $('input#foto_tupper')[0].value;
     var tipo = $('select#tipo_tupper')[0].value;
     var extension = foto.substr(foto.lastIndexOf('.'));
-    if (nombre != '' && (nombre.length <= 30) && foto != '' && tipo != 'tipo' && (extension == '.jpg' || extension == '.jpeg' || extension == '.png')) {
+    if (nombre != '' && (nombre.length <= 30) && tipo != 'tipo' && (foto == '' || extension == '.jpg' || extension == '.jpeg' || extension == '.png')) {
         return true;
     }
     else {
@@ -247,10 +247,7 @@ function subir_tupper1() {
         if (nombre.length > 30) {
             advertencia += "<br>-El nombre no puede tener mas de 30 caracteres";
         }
-        if (foto == '') {
-            advertencia += "<br>-Tienes que subir una foto";
-        }
-        if (extension != '.jpg' && extension != '.jpeg' && extension != '.png') {
+        if (foto != '' && extension != '.jpg' && extension != '.jpeg' && extension != '.png') {
             advertencia += "<br>-La foto tiene que tener una extension .jpg, .jpeg o .png";
         }
         if (tipo == 'tipo') {

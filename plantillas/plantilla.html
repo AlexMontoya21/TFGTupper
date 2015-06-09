@@ -94,13 +94,14 @@
 
             $('.elemento').hover(function () {
                 var i = platos.indexOf($(this).attr('class').split(' ')[1]);
-                if (actual !== grados[i] && actual !== grados2[i]) {
+//                console.log(i);
+//                if (actual !== grados[i] && actual !== grados2[i]) {
                     r1 = grados[i] - actual;
                     r2 = grados2[i] - actual;
                     var resultado = (Math.abs(r1) < Math.abs(r2)) ? grados[i] : grados2[i];
                     $('#flecha').css('transform', 'rotate(' + resultado + 'deg)');
                     actual = resultado;
-                }
+//                }
             });
 
             $('.cerrar').click(function () {
