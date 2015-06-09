@@ -13,7 +13,7 @@
 //        actual = resultado;
 //    }
 //});
-
+ 
 
 var peticion_http;
 function peticion(tupper) {
@@ -87,9 +87,30 @@ function procesaRespuesta_tupper() {
         });
     }
 }
+function comprobarUser(){
+    var username = document.getElementById('username').value;
+   
+        peticion_http = new XMLHttpRequest();
+        peticion_http.onreadystatechange = existeNombre;
+        var JSONObject = new Object();
+        JSONObject.usuario = username;
 
+        var datos_peticion = JSON.stringify(JSONObject);
+        var parametros_json = "json=" + datos_peticion;
+        peticion_http.open("POST", 'comprobarUser.php', true);
+        peticion_http.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        peticion_http.send(parametros_json);
+    
+}
 
-
+function existeNombre(){
+    if (peticion_http.readyState == 4) {
+        if (peticion_http.status == 200) {
+            var respuesta = peticion_http.responseText;
+            
+    }
+}
+}
 
 window.onload = function () {
     var Modernizr = window.Modernizr;
@@ -255,4 +276,12 @@ $('document').ready(function () {
 
 });
 
-        
+function no_vacio(titulo){
+    
+    if(titulo.value==''){
+        titulo.parentNode.parentNode.parentNode.children[2].children[0].disabled='disabled';
+    }
+    else{
+         titulo.parentNode.parentNode.parentNode.children[2].children[0].disabled='disabled';
+    }
+}

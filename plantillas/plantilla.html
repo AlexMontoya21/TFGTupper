@@ -15,7 +15,6 @@
         <link rel="stylesheet" href="css/estilos.css" /><!--clases propias-->
         <link rel="stylesheet" href="css/registro.css" /><!--formulario de registro y login-->
         <script type="text/javascript" src="js/bootstrap.js"></script>  <!-- FORMULARIO DE REGISTRO BOOTSTRAP -->
-        <script type="text/javascript" src="js/ValidacionFormulario.js"></script>  <!-- VALIDACION FORMULARIO  -->
         <script type="text/javascript" src="js/registro.js"></script>  
         <!-- Librería jQuery requerida por los plugins de JavaScript -->
         <script src="http://code.jquery.com/jquery.js"></script>
@@ -23,54 +22,63 @@
         <!-- Latest compiled and minified JavaScript -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
         <script src="js/general.js"></script>
-                    <script type="text/javascript" src="js/tinymce/tinymce.min.js"></script>
-        <script type="text/javascript"></script>
+        <script type="text/javascript" src="js/tinymce/tinymce.min.js"></script>
+        <script type="text/javascript">
+            function abre(url, nombre, ancho, alto) {
+
+                xpos = (screen.width / 3) - (ancho / 3);
+                ypos = (screen.height / 3) - (alto / 3);
+
+                window.open("plantillas/ayuda.html", "Ayuda", 'resizable=1,width=' + ancho + ',height=' + alto + ',left=' + xpos + ',top=' + ypos + '');
+            }
+            
+            function abre2(url, nombre, ancho, alto) {
+
+                xpos = (screen.width / 3) - (ancho / 3);
+                ypos = (screen.height / 3) - (alto / 3);
+
+                window.open("plantillas/copy.html", "Licencia", 'resizable=1,width=' + ancho + ',height=' + alto + ',left=' + xpos + ',top=' + ypos + '');
+            }
+
+        </script>
+
     </head>
-    <body>
+    <body  >
         <input type="hidden" id="usuario" value="{id}">
-        <div class="popup-fondo">
+        <div class="popup-fondo" >
             <div class="popup-wrapper">
                 <div class="popup-content">
                     <div class="cerrar">x</div>
                 </div>
             </div>
         </div>
-        <div class="container">
+        <div class="container " >
             <!--head-->
-           
-            <header  id="cabecera"  class="row panel-heading border morado_logo azul_logo" onclick="location.href = 'index.php'">
-                <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2"><img src="img/logo.png" alt="logotipo"  class="img-responsive" > </div>
+
+            <header  id="cabecera"  class="row panel-heading border_redondo naranja_logo " style="background-color: #4c1131;" onclick="location.href = 'index.php'">
+                <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2"><img src="img/logo.png" alt="logotipo"  class="img-circle" > </div>
                 <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 line-height-header"> <h1>Tupperwaring.com</h1></div>
-                <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 line-height-header"> 
-               {boton}
+                <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 line-height-header "> 
+                    {boton}
 
                     <!-- <input type="button" class="btn-default" id="sign" value="Accede" style="line-height: 200%;"> --></div>
-           </header>
+            </header>
             <!--menu-->
-            <div class="row border panel-footer azul_logo2">
-                <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3"> <a href="index.php">Inicio</a></div>
-                <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3"> <a href="index.php?plato=todos">Voy a probar suerte</a></div>
-                <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3"> <a href="index.php?recetas">Sube tu tupper</a></div>             
-                <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3"> <a href="index.php?hazteTupper" id='us'>{haztetupper_perfil}</a> <div id="n"></div></div>
+            <div class="row  panel-footer border_redondo azul_logo2 ">
+                <div class="col-xs-6 col-sm-6 col-md-3 col-lg-4 "> <a href="index.php" class="fuente_30">Inicio</a></div>
+                <div class="col-xs-6 col-sm-6 col-md-3 col-lg-4 "> <a href="index.php?plato=todos" class="fuente_30">Voy a probar suerte</a></div>           
+                <div class="col-xs-6 col-sm-6 col-md-3 col-lg-4 "> <a href="index.php?hazteTupper" class="fuente_30" id='us'>{haztetupper_perfil}</a> <div id="n"></div></div>
             </div> 
             <!--main-->
-            <div class="row border panel-body">
-              
-
-
+            <div class="row  panel-body  border_redondo" >          
                 {contenido}
-
-
-
-
             </div>    
-            <!--footer-->
-            <div class="row panel-footer border azul_logo2">
-                <div class="col-xs-6 col-sm-6 col-md-5 col-lg-5"><a href="#" class="link_footer">Copyright by Julia Bustos | Lorena Marchán | Alejandro Montoya</a></div>
-                <div  class="col-xs-6 col-sm-6 col-md-2 col-lg-2" > 
-                    <a href="plantillas/ayuda.html" target="_blank" class="link_footer" > Ayuda</a>  </div> 
-                <div class="col-xs-6 col-sm-6 col-md-2 col-lg-2"><a href="#" class="link_footer">Cookies</a></div>
-                <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3"><a href="#" class="link_footer">Política de privacidad</a></div>
+            <!--footer. la función abre nos permite mostrar una ventana emergente. Esta función ha sido diseñada para que la ventana se mueva en función del
+            tamañp de la ventana -->
+            <div class="row panel-footer border_redondo azul_logo2">
+                <div class="col-xs-6 col-sm-6 col-md-5 col-lg-6 "><a href="#" onclick="abre2();">Copyright by Julia Bustos | Lorena Marchán | Alejandro Montoya</a></div>
+                <a  class="col-xs-6 col-sm-6 col-md-2 col-lg-2" onclick="abre();" > Te ayudamos? </a>                
+                <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 "><a href="#" >Política de privacidad</a></div>
 
             </div>
         </div>

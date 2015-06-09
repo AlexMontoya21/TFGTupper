@@ -25,7 +25,7 @@ if (!isset($_SESSION["username"])) {
 
         if ($res) {   //(CONDICION PARA QUE NO DE ERROR el $res[0], SI $RES NO ESTA VACIO entonces:
             if ($res[0] === $_POST["passwordlog"]) { // SI COINCIDE CON LA PASSWORD
-                CrearSesion(); // LOGEO (Creacion de sesion etc)                 
+                CrearSesion($_POST["usernamelog"], $_POST["passwordlog"]); // LOGEO (Creacion de sesion etc)                 
             } else {
                 $contrasena = true;
                 
@@ -101,8 +101,8 @@ function veriForm() {
 
             guardarUser(TABLA2, $valores_campos); //GUARDO EN LA TABLA USUARIOS
 
-
-            return gracias();
+            CrearSesion($nombre,$password);
+            //return gracias();
         }
 
 //    }
@@ -164,7 +164,6 @@ function displayFormulario($campospendientes, $camposerroneos, $duplicado, $loge
 
 function gracias() {//FUNCION PARA ABRIR EL HTML GRACIAS
     $nombre = $_POST["username"];
-
     $datos = array(
         "nombre" => $nombre);
     $plantilla = "plantillas/Gracias.html";
@@ -205,10 +204,10 @@ function logeo() {
 }
 
 // CREACCION DE SESION CUANDO EL USUARIO ESTA LOGUEADO.
-function CrearSesion() {
+function CrearSesion($nombre,$contrasena) {
 
     session_start();
-    $_SESSION["username"] = $_POST["usernamelog"];
+    $_SESSION["username"] = $nombre;
 
     $campos = array("nombre", "id");
     $valores_campos = array(
@@ -222,3 +221,62 @@ function CrearSesion() {
     $_SESSION["id"] = $id[0];
     header('Location: index.php?hazteTupper');
 }
+
+//------------------------ FORMULARIOS CAMBIAR DATOS:  ------------------------
+//function camposCambio(){
+//    $cont=0;
+//    $camposcambio= array("username","dni","telefono","email","password");
+//     $camposcambiar=array();
+//     foreach ($camposcambio as $key ){
+//        if (($_POST[$key])!== ""){
+//            $cont++;
+//            $camposcambiar["$key"]=$_POST[$key];
+//        }
+//        
+//        
+//        }
+//        var_dump($camposcambiar);
+//   
+//        if (isset($camposcambiar["username"])){
+//        comprueboExiste($camposcambiar);
+//        }
+//        
+//        
+//        
+//}
+//function comprueboExiste($valoresCampos){
+//    
+//    $dni = $_POST["dni"];
+//    $nombre = $_POST["username"];
+//    $email = $_POST["email"];
+//    $telefono = $_POST["telefono"];
+//    $password = $_POST["password"];
+//    $campos = array("nombre");
+//
+//        $res = existeUser2($nombre, $campos[0], $campos);
+//        if ($res){// SI EXISTE EL NOMBRE REALIZO UNA CONSULTA, PARA COMPROBAR QUE NO ES EL NOMBRE PROPIO
+//                     var_dump("entra");  
+//            $campos = array("nombre", "id");
+//            $valores_campos = array(
+//               "nombre" => $nombre, );
+//
+//            $id = loadUser($campos, $valores_campos, TABLA2); // CONSULTA QUE HACE SELECT id from tabla where nombre=$nombre;                
+//            var_dump($id);    
+//     
+//            if($id[0] !== $_SESSION["id"]){// SI EL ID SACADO DE LA CONSULTA NO COINCIDE CON EL DE LA SESION,
+//                                           // ES QUE NO ES EL SUYO PROPIO POR LO TANTO, NOMBRE ELEJIDO
+//        var_dump("NOMBRE ELEJIDO");}
+//} else {var_dump("DATOS CAMBIADOS CORRECTAMENTE");
+//
+//}
+//
+//} // SI NO ES EL MISMO ID, PROCEDO A HACER EL UPDATE
+        
+//         $campos = array("nombre", "id");
+//            $valores_campos = array(
+//               "nombre" => $nombre, );
+//       
+//        modificarUser(TABLA2,$valoresCampos,$campos);
+//        
+        
+ 

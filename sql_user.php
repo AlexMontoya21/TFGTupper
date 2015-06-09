@@ -9,7 +9,7 @@ function ejecutarUser($sql, $valores_campos, $tabla) {
     if ($conexion = conexion()) {
         $consulta = mysqli_stmt_init($conexion);
         mysqli_stmt_prepare($consulta, $sql);
-//la función mysqli_stmt_bind_param() necesita referencias cuando se utiliza con call_user_func_array()
+//la funciÃ³n mysqli_stmt_bind_param() necesita referencias cuando se utiliza con call_user_func_array()
         if ($tipos) {
 
             $ejecucion = array(&$consulta, &$tipos);
@@ -47,9 +47,9 @@ function ejecutarConsultaUser($consulta, $tabla) {
         $numerror = mysqli_connect_errno();
         $descrerror = mysqli_connect_error();
         if ($numerror == 1062) {
-            $mensaje.= "<b>No ha podido añadirse el registro. Ya existe el registro</b>";
+            $mensaje.= "<b>No ha podido aÃ±adirse el registro. Ya existe el registro</b>";
         } else {
-            $mensaje.= "<b>Se ha producido un error nº $numerror que corresponde a: $descrerror </b><br>";
+            $mensaje.= "<b>Se ha producido un error nÂº $numerror que corresponde a: $descrerror </b><br>";
         }
         return false;
     } else {
@@ -84,7 +84,22 @@ function ejecutarConsultaUser($consulta, $tabla) {
     }
     cerrarConsulta();
 }
+function modificarUser($tabla, $valores_campos, $campos) {
 
+    addTable($tabla);
+    setFuncion("update");
+    foreach ($valores_campos as $campo => $valor) {
+        addSelect("$campo=?");
+        addValue("?");
+        addTipo($valor);        
+    }
+    foreach ($campos as $c => $v) {
+        addWhere("$c=$v");
+        
+    }
+    $sql_update = generar();
+    return ejecutar($sql_update, $tabla);
+}
 
 function guardarUser($tabla, $valores_campos) {
     addTableUser($tabla);
@@ -123,10 +138,16 @@ function existeUser($valor, $campo,$campos) {
     $duplicado = '';
     $valores_campos["$campo"] = $valor;
     $resultado = loadUser($campos,$valores_campos, TABLA2);
-   
     if ($resultado)
         $duplicado = 1;
     return $duplicado;
+}
+function existeUser2($valor, $campo,$campos) {
+    $duplicado = '';
+    $valores_campos["$campo"] = $valor;
+    $resultado = loadUser($campos,$valores_campos, TABLA2);
+
+    return $resultado;
 }
 
 function addTipoUser($campo) {
@@ -194,7 +215,7 @@ function generarUser() {
             $sql.=' WHERE ' . $where;
         }
     }
-    /* esta funcion podría generar la siguiente sentencia: $sql_insertar="INSERT INTO " .TABLA. "(nombre,sexo,edad,sistema,aficiones,futbol) VALUES(?,?,?,?,?,?)";
+    /* esta funcion podrÃ­a generar la siguiente sentencia: $sql_insertar="INSERT INTO " .TABLA. "(nombre,sexo,edad,sistema,aficiones,futbol) VALUES(?,?,?,?,?,?)";
      */
     return $sql;
 }
