@@ -2,7 +2,7 @@
 <script src="../js/jquery-2.1.4.min.js" type="text/javascript"></script>
 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 " id="zona_usuario">
     <div class="mensaje">{mensaje}</div>
-    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 contenido_info_usuario">
+    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 contenido_info_usuario ampliado">
         <div style="float:left;height: 1px;width:80px;">
 
             <div class="foto_usuario" style="background-image: url('img/platos/{foto}')">
@@ -149,19 +149,19 @@
         }
 
     });
-    $('div.info_usuario h1').click(function () {
-        var tamaño = $('div.info_usuario h1').css('font-size');
-        $('#zona_usuario .contenido_info_usuario.ampliado .editar').removeClass('selected');
-        if (tamaño == '34px') {
-            $('.contenido_info_usuario').addClass('ampliado');
-        }
-        else {
-            $('.contenido_info_usuario').removeClass('ampliado');
-            $('.formulario').css('height', '');
-            $('.formulario').removeClass('ampliado');
-
-        }
-    });
+//    $('div.info_usuario h1').click(function () {
+//        var tamaño = $('div.info_usuario h1').css('font-size');
+//        $('#zona_usuario .contenido_info_usuario.ampliado .editar').removeClass('selected');
+//        if (tamaño == '34px') {
+//            $('.contenido_info_usuario').addClass('ampliado');
+//        }
+//        else {
+//            $('.contenido_info_usuario').removeClass('ampliado');
+//            $('.formulario').css('height', '');
+//            $('.formulario').removeClass('ampliado');
+//
+//        }
+//    });
 
 
     $('.editar').click(function () {
@@ -228,16 +228,26 @@
                 toolbar1: "undo redo | formatselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | hr",
             });
         }, 5);
+        setTimeout(function () {
+            tinymce.init({
+                selector: "textarea",
+                theme: "modern",
+                plugins: [
+                    "wordcount", "hr",
+                ],
+                toolbar1: "undo redo | formatselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | hr",
+            });
+        }, 10);
 
     }
 
 
     function cancelar_ed_tupper(boton, id_tupper) {
-        var contenedor = boton.parentNode.parentNode.children[0];
-        contenedor.outerHTML = antiguo_contenido[id_tupper];
-        boton.parentNode.parentNode.children[1].style.display = 'block';
-        boton.parentNode.remove();
-
+//        var contenedor = boton.parentNode.parentNode.children[0];
+//        contenedor.outerHTML = antiguo_contenido[id_tupper];
+//        boton.parentNode.parentNode.children[1].style.display = 'block';
+//        boton.parentNode.remove();
+location.reload();
     }
 
 

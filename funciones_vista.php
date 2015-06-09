@@ -57,7 +57,7 @@ function tupper($id, $usuario) {
 
         $tuppers[$key].='</div>';
         $tuppers[$key].='<input type="hidden" value="'.$tupper[4].'" id="tipo">';
-        $tuppers[$key].='<input type="hidden" value="'.$tupper[0].'" id="id_tupper" name="id_tupper">';
+        $tuppers[$key].='<input type="hidden" value="'.$tupper[0].'" id="id_tupper_'.$tupper[0].'" name="id_tupper">';
         $tuppers[$key].='<div class="descripcion">';
         $tuppers[$key].="<div>$tupper[3]</div>";
         $tuppers[$key].='</div>';
