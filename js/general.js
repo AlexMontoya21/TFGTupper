@@ -276,4 +276,12 @@ $('document').ready(function () {
 
 });
 
-        
+function no_vacio(titulo){
+    
+    if(titulo.value==''){
+        titulo.parentNode.parentNode.parentNode.children[2].children[0].disabled='disabled';
+    }
+    else{
+         titulo.parentNode.parentNode.parentNode.children[2].children[0].disabled='disabled';
+    }
+}

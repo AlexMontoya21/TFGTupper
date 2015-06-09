@@ -25,7 +25,7 @@ if (!isset($_SESSION["username"])) {
 
         if ($res) {   //(CONDICION PARA QUE NO DE ERROR el $res[0], SI $RES NO ESTA VACIO entonces:
             if ($res[0] === $_POST["passwordlog"]) { // SI COINCIDE CON LA PASSWORD
-                CrearSesion(); // LOGEO (Creacion de sesion etc)                 
+                CrearSesion($_POST["usernamelog"], $_POST["passwordlog"]); // LOGEO (Creacion de sesion etc)                 
             } else {
                 $contrasena = true;
                 
@@ -101,8 +101,8 @@ function veriForm() {
 
             guardarUser(TABLA2, $valores_campos); //GUARDO EN LA TABLA USUARIOS
 
-
-            return gracias();
+            CrearSesion($nombre,$password);
+            //return gracias();
         }
 
 //    }
@@ -204,10 +204,10 @@ function logeo() {
 }
 
 // CREACCION DE SESION CUANDO EL USUARIO ESTA LOGUEADO.
-function CrearSesion() {
+function CrearSesion($nombre,$contrasena) {
 
     session_start();
-    $_SESSION["username"] = $_POST["usernamelog"];
+    $_SESSION["username"] = $nombre;
 
     $campos = array("nombre", "id");
     $valores_campos = array(

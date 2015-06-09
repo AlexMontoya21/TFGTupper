@@ -853,7 +853,7 @@ h3 {
 /*******contenido_info_usuario ampliado****************************************/
 
 #zona_usuario .contenido_info_usuario.ampliado{margin-top:50px;}
-#zona_usuario .contenido_info_usuario.ampliado div.info_usuario{height: 195px;margin-top:0px;margin-left: 45px;}
+#zona_usuario .contenido_info_usuario.ampliado div.info_usuario{height: 238px;margin-top:0px;margin-left: 45px;}
 #zona_usuario .contenido_info_usuario.ampliado div.info_usuario h1{font-size:40px;}
 #zona_usuario .contenido_info_usuario.ampliado div.info_usuario h3{font-size:17px;}
 #zona_usuario .contenido_info_usuario.ampliado div.foto_usuario{transform:scale(1);margin-top:0px;}

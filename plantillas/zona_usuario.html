@@ -219,7 +219,7 @@
         var id_tupper = contenido.children[4].value;
         antiguo_contenido[id_tupper] = (contenido.outerHTML);
         var titulo = (contenido.children[1].innerHTML).substr(0, contenido.children[1].innerHTML.indexOf('<span'));
-        contenido.children[1].innerHTML = '<input type="text" value="' + titulo + '" id="nombre" name="nombre">';
+        contenido.children[1].innerHTML = '<input type="text" value="' + titulo + '" id="nombre" name="nombre"  oninput="no_vacio(this)">';
         contenido.children[1].outerHTML += '<input type="file" id="foto" name="foto">';
 
         var descripcion = (contenido.children[6].innerHTML);
