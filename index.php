@@ -20,14 +20,13 @@ $campos = array('id_tupper', 'nombre', 'foto', 'descripcion', 'tipo', 'vegano', 
 $valores_campos;
 $mensajeAbrirConexion = "";
 session_start();
-$boton = '<a href="index.php?iniciaSesion"> <input type="button"  id="login" value="Inicia sesion" style="line-height: 200%;  margin-top: 51px;
-    color: #FC6344; "> </a>';
+$boton = '<a href="index.php?iniciaSesion"> <input type="button"  id="login" value="Inicia sesion" class="bot"> </a>';
 $haztetupper_perfil = '#haztetupper';
 $titulo = "Inicio";
 $plantilla = "plantillas/plantilla.html";
 if (isset($_SESSION["id"])) {
     $haztetupper_perfil = $_SESSION["username"];
-    $boton = '<a href="index.php?cierraSesion"> <input type="button" class="btn-default" id="login" value="Cierra sesion" style="line-height: 200%;""> </a>';
+    $boton = '<a href="index.php?cierraSesion"> <input type="button" class="bot" id="login" value="Cierra sesion" > </a>';
 
     if (isset($_GET["cierraSesion"])) {
         session_destroy();
@@ -47,7 +46,7 @@ switch (true) {
             $contenido = zona_usuario();
             $datos = array("mensaje" => '');
             $contenido = respuesta2($datos, $contenido);
-            
+                  
         } else {
             if (isset($_POST["Enviar"])) {
                 $contenido = veriForm();
@@ -76,11 +75,7 @@ switch (true) {
                 $contenido = DisplayFormulario(array(), array(), $duplicado, $logeo, $contrasena);
             }
         }
-        break;
-    case (isset($_GET["recetas"])):
-        $plantilla2 = "plantillas/recetas.html";
-        $contenido = file_get_contents($plantilla2);
-        break;    
+        break;   
     case (isset($_GET["plato"])):
         $contenido = generar_tupper();
         $titulo = $_GET['plato'];

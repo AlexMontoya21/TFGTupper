@@ -15,7 +15,6 @@
         <link rel="stylesheet" href="css/estilos.css" /><!--clases propias-->
         <link rel="stylesheet" href="css/registro.css" /><!--formulario de registro y login-->
         <script type="text/javascript" src="js/bootstrap.js"></script>  <!-- FORMULARIO DE REGISTRO BOOTSTRAP -->
-        <script type="text/javascript" src="js/ValidacionFormulario.js"></script>  <!-- VALIDACION FORMULARIO  -->
         <script type="text/javascript" src="js/registro.js"></script>  
         <!-- Librería jQuery requerida por los plugins de JavaScript -->
         <script src="http://code.jquery.com/jquery.js"></script>
@@ -65,22 +64,21 @@
                     <!-- <input type="button" class="btn-default" id="sign" value="Accede" style="line-height: 200%;"> --></div>
             </header>
             <!--menu-->
-            <div class="row  panel-footer border_redondo azul_logo2">
-                <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3"> <a href="index.php">Inicio</a></div>
-                <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3"> <a href="index.php?plato=todos">Voy a probar suerte</a></div>
-                <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3"> <a href="index.php?recetas">Sube tu tupper</a></div>             
-                <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3"> <a href="index.php?hazteTupper" id='us'>{haztetupper_perfil}</a> <div id="n"></div></div>
+            <div class="row  panel-footer border_redondo azul_logo2 ">
+                <div class="col-xs-6 col-sm-6 col-md-3 col-lg-4 "> <a href="index.php" class="fuente_30">Inicio</a></div>
+                <div class="col-xs-6 col-sm-6 col-md-3 col-lg-4 "> <a href="index.php?plato=todos" class="fuente_30">Voy a probar suerte</a></div>           
+                <div class="col-xs-6 col-sm-6 col-md-3 col-lg-4 "> <a href="index.php?hazteTupper" class="fuente_30" id='us'>{haztetupper_perfil}</a> <div id="n"></div></div>
             </div> 
             <!--main-->
-            <div class="row  panel-body">          
+            <div class="row  panel-body  border_redondo" >          
                 {contenido}
             </div>    
             <!--footer. la función abre nos permite mostrar una ventana emergente. Esta función ha sido diseñada para que la ventana se mueva en función del
             tamañp de la ventana -->
             <div class="row panel-footer border_redondo azul_logo2">
                 <div class="col-xs-6 col-sm-6 col-md-5 col-lg-6 "><a href="#" onclick="abre2();">Copyright by Julia Bustos | Lorena Marchán | Alejandro Montoya</a></div>
-                <a  class="col-xs-6 col-sm-6 col-md-2 col-lg-2 link_footer" onclick="abre();" > Ayuda </a>                
-                <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 link_footer"><a href="#" >Política de privacidad</a></div>
+                <a  class="col-xs-6 col-sm-6 col-md-2 col-lg-2" onclick="abre();" > Te ayudamos? </a>                
+                <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 "><a href="#" >Política de privacidad</a></div>
 
             </div>
         </div>

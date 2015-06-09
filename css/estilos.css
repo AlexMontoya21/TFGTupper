@@ -7,10 +7,19 @@ and open the template in the editor.
     Created on : 21-abr-2015, 17:42:33
     Author     : Julia
 */
-bot{
+.fuente_30{
+    font-size: 30px;
+}
+.bot{
     line-height: 200%;
     margin-top: 51px;
     color: #FC6344;
+    
+}
+.bot:hover{
+    line-height: 200%;
+    margin-top: 51px;
+    background-color:  #2d9da0;;
 }
 .panel-body {
     padding: 0px; 
