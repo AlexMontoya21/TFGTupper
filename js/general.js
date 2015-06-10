@@ -294,12 +294,14 @@ $('document').ready(function () {
         
 =======
 function no_vacio(titulo){
-    
+    console.log(titulo.value);
     if(titulo.value==''){
-        titulo.parentNode.parentNode.parentNode.children[2].children[0].disabled='disabled';
+        console.log('entra if');
+        titulo.parentNode.parentNode.parentNode.children[2].children[0].disabled=true;
     }
     else{
-         titulo.parentNode.parentNode.parentNode.children[2].children[0].disabled='disabled';
+                console.log('entra else');
+         titulo.parentNode.parentNode.parentNode.children[2].children[0].disabled=false;
     }
 }
 >>>>>>> origin/master

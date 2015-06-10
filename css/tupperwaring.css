@@ -1352,10 +1352,10 @@ input[type=button].notifi, input[type=submit] {
     min-width:80px;
     transition: all 300ms;
 }
-input[type=button].notifi:disabled, input[type=button].notifi:disabled:hover{
+input[type=submit].notifi:disabled, input[type=button].notifi:disabled, input[type=submit].notifi:disabled:hover, input[type=button].notifi:disabled:hover{
     background-color: white;
-    border: solid 2px #CABFC6;
-    color: #CABFC6;
+    border: solid 2px #D1CEED;
+    color: #D1CEED;
     cursor: default;
 
 }
