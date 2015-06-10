@@ -87,9 +87,36 @@ function procesaRespuesta_tupper() {
         });
     }
 }
+<<<<<<< HEAD
 
 
 
+=======
+function comprobarUser(){
+    var username = document.getElementById('username').value;
+   
+        peticion_http = new XMLHttpRequest();
+        peticion_http.onreadystatechange = existeNombre;
+        var JSONObject = new Object();
+        JSONObject.usuario = username;
+
+        var datos_peticion = JSON.stringify(JSONObject);
+        var parametros_json = "json=" + datos_peticion;
+        peticion_http.open("POST", 'comprobarUser.php', true);
+        peticion_http.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        peticion_http.send(parametros_json);
+    
+}
+
+function existeNombre(){
+    if (peticion_http.readyState == 4) {
+        if (peticion_http.status == 200) {
+            var respuesta = peticion_http.responseText;
+            
+    }
+}
+}
+>>>>>>> origin/master
 
 window.onload = function () {
     var Modernizr = window.Modernizr;
@@ -216,7 +243,11 @@ function subir_tupper1() {
     var foto = $('input#foto_tupper')[0].value;
     var tipo = $('select#tipo_tupper')[0].value;
     var extension = foto.substr(foto.lastIndexOf('.'));
+<<<<<<< HEAD
     if (nombre != '' && (nombre.length <= 30) && foto != '' && tipo != 'tipo' && (extension == '.jpg' || extension == '.jpeg' || extension == '.png')) {
+=======
+    if (nombre != '' && (nombre.length <= 30) && tipo != 'tipo' && (foto == '' || extension == '.jpg' || extension == '.jpeg' || extension == '.png')) {
+>>>>>>> origin/master
         return true;
     }
     else {
@@ -226,10 +257,14 @@ function subir_tupper1() {
         if (nombre.length > 30) {
             advertencia += "<br>-El nombre no puede tener mas de 30 caracteres";
         }
+<<<<<<< HEAD
         if (foto == '') {
             advertencia += "<br>-Tienes que subir una foto";
         }
         if (extension != '.jpg' && extension != '.jpeg' && extension != '.png') {
+=======
+        if (foto != '' && extension != '.jpg' && extension != '.jpeg' && extension != '.png') {
+>>>>>>> origin/master
             advertencia += "<br>-La foto tiene que tener una extension .jpg, .jpeg o .png";
         }
         if (tipo == 'tipo') {
@@ -255,4 +290,16 @@ $('document').ready(function () {
 
 });
 
+<<<<<<< HEAD
         
+=======
+function no_vacio(titulo){
+    
+    if(titulo.value==''){
+        titulo.parentNode.parentNode.parentNode.children[2].children[0].disabled='disabled';
+    }
+    else{
+         titulo.parentNode.parentNode.parentNode.children[2].children[0].disabled='disabled';
+    }
+}
+>>>>>>> origin/master
