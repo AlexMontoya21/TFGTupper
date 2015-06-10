@@ -87,11 +87,6 @@ function procesaRespuesta_tupper() {
         });
     }
 }
-<<<<<<< HEAD
-
-
-
-=======
 function comprobarUser(){
     var username = document.getElementById('username').value;
    
@@ -116,7 +111,7 @@ function existeNombre(){
     }
 }
 }
->>>>>>> origin/master
+
 
 window.onload = function () {
     var Modernizr = window.Modernizr;
@@ -243,11 +238,7 @@ function subir_tupper1() {
     var foto = $('input#foto_tupper')[0].value;
     var tipo = $('select#tipo_tupper')[0].value;
     var extension = foto.substr(foto.lastIndexOf('.'));
-<<<<<<< HEAD
-    if (nombre != '' && (nombre.length <= 30) && foto != '' && tipo != 'tipo' && (extension == '.jpg' || extension == '.jpeg' || extension == '.png')) {
-=======
     if (nombre != '' && (nombre.length <= 30) && tipo != 'tipo' && (foto == '' || extension == '.jpg' || extension == '.jpeg' || extension == '.png')) {
->>>>>>> origin/master
         return true;
     }
     else {
@@ -257,14 +248,7 @@ function subir_tupper1() {
         if (nombre.length > 30) {
             advertencia += "<br>-El nombre no puede tener mas de 30 caracteres";
         }
-<<<<<<< HEAD
-        if (foto == '') {
-            advertencia += "<br>-Tienes que subir una foto";
-        }
-        if (extension != '.jpg' && extension != '.jpeg' && extension != '.png') {
-=======
         if (foto != '' && extension != '.jpg' && extension != '.jpeg' && extension != '.png') {
->>>>>>> origin/master
             advertencia += "<br>-La foto tiene que tener una extension .jpg, .jpeg o .png";
         }
         if (tipo == 'tipo') {
@@ -290,9 +274,7 @@ $('document').ready(function () {
 
 });
 
-<<<<<<< HEAD
-        
-=======
+
 function no_vacio(titulo){
     console.log(titulo.value);
     if(titulo.value==''){
@@ -304,4 +286,4 @@ function no_vacio(titulo){
          titulo.parentNode.parentNode.parentNode.children[2].children[0].disabled=false;
     }
 }
->>>>>>> origin/master
+

@@ -7,12 +7,6 @@ and open the template in the editor.
     Created on : 21-abr-2015, 17:42:33
     Author     : Julia
 */
-<<<<<<< HEAD
-bot{
-    line-height: 200%;
-    margin-top: 51px;
-    color: #FC6344;
-=======
 .fuente_30{
     font-size: 30px;
 }
@@ -26,16 +20,12 @@ bot{
     line-height: 200%;
     margin-top: 51px;
     background-color:  #2d9da0;;
->>>>>>> origin/master
+
 }
 .panel-body {
     padding: 0px; 
 }
-<<<<<<< HEAD
-h1{  
-=======
 .cabecera h1{  
->>>>>>> origin/master
     font-size: 90px;
     margin: 0px;
     line-height: 130px;
