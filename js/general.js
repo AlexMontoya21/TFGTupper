@@ -13,7 +13,7 @@
 //        actual = resultado;
 //    }
 //});
-
+ 
 
 var peticion_http;
 function peticion(tupper) {
@@ -87,8 +87,30 @@ function procesaRespuesta_tupper() {
         });
     }
 }
+function comprobarUser(){
+    var username = document.getElementById('username').value;
+   
+        peticion_http = new XMLHttpRequest();
+        peticion_http.onreadystatechange = existeNombre;
+        var JSONObject = new Object();
+        JSONObject.usuario = username;
 
+        var datos_peticion = JSON.stringify(JSONObject);
+        var parametros_json = "json=" + datos_peticion;
+        peticion_http.open("POST", 'comprobarUser.php', true);
+        peticion_http.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        peticion_http.send(parametros_json);
+    
+}
 
+function existeNombre(){
+    if (peticion_http.readyState == 4) {
+        if (peticion_http.status == 200) {
+            var respuesta = peticion_http.responseText;
+            
+    }
+}
+}
 
 
 window.onload = function () {
@@ -209,3 +231,59 @@ function notificaciones() {
     peticion_http.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     peticion_http.send(parametros_json);
 }
+
+function subir_tupper1() {
+    var advertencia = "Hay algunas cosas que tienes que revisar...";
+    var nombre = $('input#nombre_tupper')[0].value;
+    var foto = $('input#foto_tupper')[0].value;
+    var tipo = $('select#tipo_tupper')[0].value;
+    var extension = foto.substr(foto.lastIndexOf('.'));
+    if (nombre != '' && (nombre.length <= 30) && tipo != 'tipo' && (foto == '' || extension == '.jpg' || extension == '.jpeg' || extension == '.png')) {
+        return true;
+    }
+    else {
+        if (nombre == '') {
+            advertencia += "<br>-El nombre no puede estar vacio";
+        }
+        if (nombre.length > 30) {
+            advertencia += "<br>-El nombre no puede tener mas de 30 caracteres";
+        }
+        if (foto != '' && extension != '.jpg' && extension != '.jpeg' && extension != '.png') {
+            advertencia += "<br>-La foto tiene que tener una extension .jpg, .jpeg o .png";
+        }
+        if (tipo == 'tipo') {
+            advertencia += "<br>-Tienes que seleccionar que tipo de plato es";
+        }
+        $('.advertencia').empty();
+        $('.advertencia').html(advertencia);
+        return false;
+    }
+}
+
+$('document').ready(function () {
+    if ($('.mensaje')[0].innerHTML != '') {
+        $('.mensaje').css('height','45px');
+        setTimeout(function () {
+        $('.mensaje').css('height','0px');
+        }, 5000);
+        
+        setTimeout(function () {
+            location.href = 'index.php?hazteTupper';
+        }, 6000);
+    }
+
+});
+
+
+function no_vacio(titulo){
+    console.log(titulo.value);
+    if(titulo.value==''){
+        console.log('entra if');
+        titulo.parentNode.parentNode.parentNode.children[2].children[0].disabled=true;
+    }
+    else{
+                console.log('entra else');
+         titulo.parentNode.parentNode.parentNode.children[2].children[0].disabled=false;
+    }
+}
+

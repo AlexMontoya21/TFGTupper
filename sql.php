@@ -80,12 +80,14 @@ function modificar($tabla) {
     foreach ($valores_campos as $campo => $valor) {
         addSelect("$campo=?");
         addValue("?");
+        addTipo($valor);
     }
     foreach ($campos as $c => $v) {
         addWhere("$c=$v");
-        addTipo($v);
+        
     }
     $sql_update = generar();
+    
     return ejecutar($sql_update, $tabla);
 }
 
